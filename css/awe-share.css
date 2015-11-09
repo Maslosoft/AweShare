@@ -1,0 +1,11 @@
+.awe-share a {
+  padding: .2em;
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  display: inline-block;
+}
+.awe-share-vertical a {
+  display: block;
+}
+/*# sourceMappingURL=awe-share.css.map */

@@ -1,0 +1,29 @@
+{
+  "name": "awe-share",
+  "description": "Awe Share - Font Awesome Based Sharer",
+  "main": "dist/awe-share.min.js",
+  "authors": [
+    "Peter Maselkowski <pmaselkowski@gmail.com>"
+  ],
+  "license": "AGPL/Commercial",
+  "keywords": [
+    "share",
+    "sharing",
+    "font-awesome",
+    "fontawesome",
+    "social"
+  ],
+  "homepage": "http://maslosoft.com/awe-share/",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "font-awesome": "fontawesome#~4.4.0"
+  }
+}

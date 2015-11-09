@@ -1,0 +1,33 @@
+{
+  "name": "awe-share",
+  "version": "1.0.0",
+  "description": "Awe Share - Font Awesome Based Sharer",
+  "main": "dist/awe-share.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maslosoft/AweShare.git"
+  },
+  "keywords": [
+    "share",
+	 "sharing",
+    "font-awesome",
+    "fontawesome",
+    "social"
+  ],
+  "author": "",
+  "license": "AGPL/Commercial",
+  "bugs": {
+    "url": "https://github.com/Maslosoft/AweShare/issues"
+  },
+  "homepage": "https://github.com/Maslosoft/AweShare",
+  "dependencies": {
+    "grunt-contrib-coffee": "^0.13.0",
+    "grunt-contrib-cssmin": "^0.13.0",
+    "grunt-contrib-less": "^1.0.1",
+    "grunt-contrib-uglify": "^0.9.2",
+    "grunt-contrib-watch": "^0.6.1"
+  }
+}

@@ -1,0 +1,3 @@
+
+if !@Maslosoft
+	@Maslosoft = {}
