@@ -85,11 +85,15 @@ class @Maslosoft.AweShare.Renderer
 
 	render: (name, adapter) ->
 		@sharer.element.append """
-		<a href="">
+		<a href="" class="awe-share-brand-#{name}">
 			<i class='fa fa-2x fa-#{name}'></i>
 		</a>
 		"""
 
+
+class @Maslosoft.AweShare.Adapters.Delicious extends @Maslosoft.AweShare.Adapter
+
+class @Maslosoft.AweShare.Adapters.Digg extends @Maslosoft.AweShare.Adapter
 
 class @Maslosoft.AweShare.Adapters.Facebook extends @Maslosoft.AweShare.Adapter
 
@@ -127,7 +131,17 @@ class @Maslosoft.AweShare.Adapters.GooglePlus extends @Maslosoft.AweShare.Adapte
 	#
 	decorate: (window) ->
 
+class @Maslosoft.AweShare.Adapters.Linkedin extends @Maslosoft.AweShare.Adapter
+
 class @Maslosoft.AweShare.Adapters.Pinterest extends @Maslosoft.AweShare.Adapter
+
+class @Maslosoft.AweShare.Adapters.Reddit extends @Maslosoft.AweShare.Adapter
+
+class @Maslosoft.AweShare.Adapters.Tumblr extends @Maslosoft.AweShare.Adapter
+
+class @Maslosoft.AweShare.Adapters.Twitter extends @Maslosoft.AweShare.Adapter
+
+class @Maslosoft.AweShare.Adapters.Vk extends @Maslosoft.AweShare.Adapter
 
 
 jQuery(document).ready ()->

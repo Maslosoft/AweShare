@@ -97,12 +97,34 @@
     }
 
     Renderer.prototype.render = function(name, adapter) {
-      return this.sharer.element.append("<a href=\"\">\n	<i class='fa fa-2x fa-" + name + "'></i>\n</a>");
+      return this.sharer.element.append("<a href=\"\" class=\"awe-share-brand-" + name + "\">\n	<i class='fa fa-2x fa-" + name + "'></i>\n</a>");
     };
 
     return Renderer;
 
   })();
+
+  this.Maslosoft.AweShare.Adapters.Delicious = (function(superClass) {
+    extend(Delicious, superClass);
+
+    function Delicious() {
+      return Delicious.__super__.constructor.apply(this, arguments);
+    }
+
+    return Delicious;
+
+  })(this.Maslosoft.AweShare.Adapter);
+
+  this.Maslosoft.AweShare.Adapters.Digg = (function(superClass) {
+    extend(Digg, superClass);
+
+    function Digg() {
+      return Digg.__super__.constructor.apply(this, arguments);
+    }
+
+    return Digg;
+
+  })(this.Maslosoft.AweShare.Adapter);
 
   this.Maslosoft.AweShare.Adapters.Facebook = (function(superClass) {
     extend(Facebook, superClass);
@@ -156,6 +178,17 @@
 
   })(this.Maslosoft.AweShare.Adapter);
 
+  this.Maslosoft.AweShare.Adapters.Linkedin = (function(superClass) {
+    extend(Linkedin, superClass);
+
+    function Linkedin() {
+      return Linkedin.__super__.constructor.apply(this, arguments);
+    }
+
+    return Linkedin;
+
+  })(this.Maslosoft.AweShare.Adapter);
+
   this.Maslosoft.AweShare.Adapters.Pinterest = (function(superClass) {
     extend(Pinterest, superClass);
 
@@ -164,6 +197,50 @@
     }
 
     return Pinterest;
+
+  })(this.Maslosoft.AweShare.Adapter);
+
+  this.Maslosoft.AweShare.Adapters.Reddit = (function(superClass) {
+    extend(Reddit, superClass);
+
+    function Reddit() {
+      return Reddit.__super__.constructor.apply(this, arguments);
+    }
+
+    return Reddit;
+
+  })(this.Maslosoft.AweShare.Adapter);
+
+  this.Maslosoft.AweShare.Adapters.Tumblr = (function(superClass) {
+    extend(Tumblr, superClass);
+
+    function Tumblr() {
+      return Tumblr.__super__.constructor.apply(this, arguments);
+    }
+
+    return Tumblr;
+
+  })(this.Maslosoft.AweShare.Adapter);
+
+  this.Maslosoft.AweShare.Adapters.Twitter = (function(superClass) {
+    extend(Twitter, superClass);
+
+    function Twitter() {
+      return Twitter.__super__.constructor.apply(this, arguments);
+    }
+
+    return Twitter;
+
+  })(this.Maslosoft.AweShare.Adapter);
+
+  this.Maslosoft.AweShare.Adapters.Vk = (function(superClass) {
+    extend(Vk, superClass);
+
+    function Vk() {
+      return Vk.__super__.constructor.apply(this, arguments);
+    }
+
+    return Vk;
 
   })(this.Maslosoft.AweShare.Adapter);
 

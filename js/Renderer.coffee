@@ -8,7 +8,7 @@ class @Maslosoft.AweShare.Renderer
 
 	render: (name, adapter) ->
 		@sharer.element.append """
-		<a href="">
+		<a href="" class="awe-share-brand-#{name}">
 			<i class='fa fa-2x fa-#{name}'></i>
 		</a>
 		"""

@@ -1,11 +1,41 @@
 .awe-share a {
-  padding: .2em;
-  width: 2em;
+  padding: .6em .4em;
+  width: 2.3em;
   height: 2em;
   text-align: center;
   display: inline-block;
 }
 .awe-share-vertical a {
   display: block;
+}
+.awe-share-brand-bg a {
+  color: white;
+}
+.awe-share-brand-bg .awe-share-brand-facebook {
+  background-color: #3b5998;
+}
+.awe-share-brand-bg .awe-share-brand-google-plus {
+  background-color: #d13e29;
+}
+.awe-share-brand-bg .awe-share-brand-reddit {
+  background-color: #ff5700;
+}
+.awe-share-brand-bg .awe-share-brand-twitter {
+  background-color: #55acee;
+}
+.awe-share-brand-bg .awe-share-brand-tumblr {
+  background-color: #35465c;
+}
+.awe-share-brand-bg .awe-share-brand-linkedin {
+  background-color: #0077b5;
+}
+.awe-share-brand-bg .awe-share-brand-pinterest {
+  background-color: #bd081c;
+}
+.awe-share-brand-bg .awe-share-brand-digg {
+  background-color: #000000;
+}
+.awe-share-brand-bg .awe-share-brand-delicious {
+  background-color: #3399ff;
 }
 /*# sourceMappingURL=dist/awe-share.css.map */

@@ -8,8 +8,9 @@ require '_header.php'
 	Horizontal
 <div class="awe-share"></div>
 Selected services
-<div class="awe-share awe-share-vertical" data-services=" facebook,  google-plus ,github  "></div>
-</p>
+<div class="awe-share" data-services=" facebook,  twitter, google-plus ,github  "></div>
+Brand background
+<div class="awe-share awe-share-brand-bg"></div>
 Vertical
 <div class="awe-share awe-share-vertical"></div>
 </p>
