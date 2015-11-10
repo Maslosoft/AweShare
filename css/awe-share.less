@@ -8,6 +8,7 @@
 @googlePlus: #D13E29;
 @digg: #000000;
 @delicious:#3399ff;
+@vk:#45668e;
 
 // Horizontal
 .awe-share{
@@ -17,6 +18,10 @@
 		height:2em;
 		text-align:center;
 		display:inline-block;
+		// For compatibility with twitter bootstrap etc, which overrides box sizing
+		-webkit-box-sizing: content-box;
+		-moz-box-sizing: content-box;
+		box-sizing: content-box;
 	}
 }
 
@@ -31,47 +36,150 @@
 .awe-share-brand-bg{
 	a{
 		color:white;
+
+		&.awe-share-brand-facebook{
+			background-color:@facebook;
+		}
+		&.awe-share-brand-google-plus{
+			background-color:@googlePlus;
+		}
+		&.awe-share-brand-reddit{
+			background-color:@reddit;
+		}
+		&.awe-share-brand-twitter{
+			background-color:@twitter;
+		}
+		&.awe-share-brand-tumblr{
+			background-color:@tumblr;
+		}
+		&.awe-share-brand-linkedin{
+			background-color:@linkedin;
+		}
+		&.awe-share-brand-pinterest{
+			background-color:@pinterest;
+		}
+		&.awe-share-brand-digg{
+			background-color:@digg;
+		}
+		&.awe-share-brand-delicious{
+			background-color:@delicious;
+		}
+		&.awe-share-brand-vk{
+			background-color:@vk;
+		}
 	}
-	.awe-share-brand-facebook{
-		background-color:@facebook;
-	}
-	.awe-share-brand-google-plus{
-		background-color:@googlePlus;
-	}
-		.awe-share-brand-reddit{
-		background-color:@reddit;
-	}
-	.awe-share-brand-twitter{
-		background-color:@twitter;
-	}
-	.awe-share-brand-tumblr{
-		background-color:@tumblr;
-	}
-	.awe-share-brand-linkedin{
-		background-color:@linkedin;
-	}
-	.awe-share-brand-pinterest{
-		background-color:@pinterest;
-	}
-	.awe-share-brand-digg{
-		background-color:@digg;
-	}
-	.awe-share-brand-delicious{
-		background-color:@delicious;
+}
+
+// Display brand colors as foreground
+.awe-share-brand-fg{
+	a{
+		&.awe-share-brand-facebook{
+			color:@facebook;
+		}
+		&.awe-share-brand-google-plus{
+			color:@googlePlus;
+		}
+		&.awe-share-brand-reddit{
+			color:@reddit;
+		}
+		&.awe-share-brand-twitter{
+			color:@twitter;
+		}
+		&.awe-share-brand-tumblr{
+			color:@tumblr;
+		}
+		&.awe-share-brand-linkedin{
+			color:@linkedin;
+		}
+		&.awe-share-brand-pinterest{
+			color:@pinterest;
+		}
+		&.awe-share-brand-digg{
+			color:@digg;
+		}
+		&.awe-share-brand-delicious{
+			color:@delicious;
+		}
+		&.awe-share-brand-vk{
+			color:@vk;
+		}
 	}
 }
 
 // Display brand colors as background on hover
 .awe-share-brand-bg-hover{
-
-}
-
-// Display brand colors as foreground
-.awe-share-brand-fg{
-
+	a{
+		&:hover{
+			color:white;
+			&.awe-share-brand-facebook{
+				background-color:@facebook;
+			}
+			&.awe-share-brand-google-plus{
+				background-color:@googlePlus;
+			}
+			&.awe-share-brand-reddit{
+				background-color:@reddit;
+			}
+			&.awe-share-brand-twitter{
+				background-color:@twitter;
+			}
+			&.awe-share-brand-tumblr{
+				background-color:@tumblr;
+			}
+			&.awe-share-brand-linkedin{
+				background-color:@linkedin;
+			}
+			&.awe-share-brand-pinterest{
+				background-color:@pinterest;
+			}
+			&.awe-share-brand-digg{
+				background-color:@digg;
+			}
+			&.awe-share-brand-delicious{
+				background-color:@delicious;
+			}
+			&.awe-share-brand-vk{
+				background-color:@vk;
+			}
+		}
+	}
 }
 
 // Display brand colors as foreground on hover
 .awe-share-brand-fg-hover{
-
+	a{
+		&:hover{
+			background-color:transparent;
+			&.awe-share-brand-facebook{
+				color:@facebook;
+			}
+			&.awe-share-brand-google-plus{
+				color:@googlePlus;
+			}
+			&.awe-share-brand-reddit{
+				color:@reddit;
+			}
+			&.awe-share-brand-twitter{
+				color:@twitter;
+			}
+			&.awe-share-brand-tumblr{
+				color:@tumblr;
+			}
+			&.awe-share-brand-linkedin{
+				color:@linkedin;
+			}
+			&.awe-share-brand-pinterest{
+				color:@pinterest;
+			}
+			&.awe-share-brand-digg{
+				color:@digg;
+			}
+			&.awe-share-brand-delicious{
+				color:@delicious;
+			}
+			&.awe-share-brand-vk{
+				color:@vk;
+			}
+		}
+	}
 }

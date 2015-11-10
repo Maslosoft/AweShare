@@ -111,6 +111,8 @@
       return Delicious.__super__.constructor.apply(this, arguments);
     }
 
+    Delicious.label = "Save to Delicious";
+
     return Delicious;
 
   })(this.Maslosoft.AweShare.Adapter);
@@ -122,6 +124,8 @@
       return Digg.__super__.constructor.apply(this, arguments);
     }
 
+    Digg.label = "Submit to Digg";
+
     return Digg;
 
   })(this.Maslosoft.AweShare.Adapter);
@@ -132,6 +136,8 @@
     function Facebook() {
       return Facebook.__super__.constructor.apply(this, arguments);
     }
+
+    Facebook.label = "Share on Facebook";
 
     Facebook.prototype.count = function() {
       var shares;
@@ -154,6 +160,8 @@
     function GooglePlus() {
       return GooglePlus.__super__.constructor.apply(this, arguments);
     }
+
+    GooglePlus.label = "Share on Google+";
 
     GooglePlus.prototype.count = function() {
       if (!window.services) {
@@ -185,6 +193,8 @@
       return Linkedin.__super__.constructor.apply(this, arguments);
     }
 
+    Linkedin.label = "Share on Linkedin";
+
     return Linkedin;
 
   })(this.Maslosoft.AweShare.Adapter);
@@ -195,6 +205,8 @@
     function Pinterest() {
       return Pinterest.__super__.constructor.apply(this, arguments);
     }
+
+    Pinterest.label = "Pin It";
 
     return Pinterest;
 
@@ -207,6 +219,8 @@
       return Reddit.__super__.constructor.apply(this, arguments);
     }
 
+    Reddit.label = "Share on Reddit";
+
     return Reddit;
 
   })(this.Maslosoft.AweShare.Adapter);
@@ -217,6 +231,8 @@
     function Tumblr() {
       return Tumblr.__super__.constructor.apply(this, arguments);
     }
+
+    Tumblr.label = "Share on Tumblr";
 
     return Tumblr;
 
@@ -229,6 +245,8 @@
       return Twitter.__super__.constructor.apply(this, arguments);
     }
 
+    Twitter.label = "Tweet It";
+
     return Twitter;
 
   })(this.Maslosoft.AweShare.Adapter);
@@ -239,6 +257,8 @@
     function Vk() {
       return Vk.__super__.constructor.apply(this, arguments);
     }
+
+    Vk.label = "Share on VK";
 
     return Vk;
 

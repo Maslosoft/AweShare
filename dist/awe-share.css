@@ -4,6 +4,9 @@
   height: 2em;
   text-align: center;
   display: inline-block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
 }
 .awe-share-vertical a {
   display: block;
@@ -11,31 +14,130 @@
 .awe-share-brand-bg a {
   color: white;
 }
-.awe-share-brand-bg .awe-share-brand-facebook {
+.awe-share-brand-bg a.awe-share-brand-facebook {
   background-color: #3b5998;
 }
-.awe-share-brand-bg .awe-share-brand-google-plus {
+.awe-share-brand-bg a.awe-share-brand-google-plus {
   background-color: #d13e29;
 }
-.awe-share-brand-bg .awe-share-brand-reddit {
+.awe-share-brand-bg a.awe-share-brand-reddit {
   background-color: #ff5700;
 }
-.awe-share-brand-bg .awe-share-brand-twitter {
+.awe-share-brand-bg a.awe-share-brand-twitter {
   background-color: #55acee;
 }
-.awe-share-brand-bg .awe-share-brand-tumblr {
+.awe-share-brand-bg a.awe-share-brand-tumblr {
   background-color: #35465c;
 }
-.awe-share-brand-bg .awe-share-brand-linkedin {
+.awe-share-brand-bg a.awe-share-brand-linkedin {
   background-color: #0077b5;
 }
-.awe-share-brand-bg .awe-share-brand-pinterest {
+.awe-share-brand-bg a.awe-share-brand-pinterest {
   background-color: #bd081c;
 }
-.awe-share-brand-bg .awe-share-brand-digg {
+.awe-share-brand-bg a.awe-share-brand-digg {
   background-color: #000000;
 }
-.awe-share-brand-bg .awe-share-brand-delicious {
+.awe-share-brand-bg a.awe-share-brand-delicious {
   background-color: #3399ff;
+}
+.awe-share-brand-bg a.awe-share-brand-vk {
+  background-color: #45668e;
+}
+.awe-share-brand-fg a.awe-share-brand-facebook {
+  color: #3b5998;
+}
+.awe-share-brand-fg a.awe-share-brand-google-plus {
+  color: #d13e29;
+}
+.awe-share-brand-fg a.awe-share-brand-reddit {
+  color: #ff5700;
+}
+.awe-share-brand-fg a.awe-share-brand-twitter {
+  color: #55acee;
+}
+.awe-share-brand-fg a.awe-share-brand-tumblr {
+  color: #35465c;
+}
+.awe-share-brand-fg a.awe-share-brand-linkedin {
+  color: #0077b5;
+}
+.awe-share-brand-fg a.awe-share-brand-pinterest {
+  color: #bd081c;
+}
+.awe-share-brand-fg a.awe-share-brand-digg {
+  color: #000000;
+}
+.awe-share-brand-fg a.awe-share-brand-delicious {
+  color: #3399ff;
+}
+.awe-share-brand-fg a.awe-share-brand-vk {
+  color: #45668e;
+}
+.awe-share-brand-bg-hover a:hover {
+  color: white;
+}
+.awe-share-brand-bg-hover a:hover.awe-share-brand-facebook {
+  background-color: #3b5998;
+}
+.awe-share-brand-bg-hover a:hover.awe-share-brand-google-plus {
+  background-color: #d13e29;
+}
+.awe-share-brand-bg-hover a:hover.awe-share-brand-reddit {
+  background-color: #ff5700;
+}
+.awe-share-brand-bg-hover a:hover.awe-share-brand-twitter {
+  background-color: #55acee;
+}
+.awe-share-brand-bg-hover a:hover.awe-share-brand-tumblr {
+  background-color: #35465c;
+}
+.awe-share-brand-bg-hover a:hover.awe-share-brand-linkedin {
+  background-color: #0077b5;
+}
+.awe-share-brand-bg-hover a:hover.awe-share-brand-pinterest {
+  background-color: #bd081c;
+}
+.awe-share-brand-bg-hover a:hover.awe-share-brand-digg {
+  background-color: #000000;
+}
+.awe-share-brand-bg-hover a:hover.awe-share-brand-delicious {
+  background-color: #3399ff;
+}
+.awe-share-brand-bg-hover a:hover.awe-share-brand-vk {
+  background-color: #45668e;
+}
+.awe-share-brand-fg-hover a:hover {
+  background-color: transparent;
+}
+.awe-share-brand-fg-hover a:hover.awe-share-brand-facebook {
+  color: #3b5998;
+}
+.awe-share-brand-fg-hover a:hover.awe-share-brand-google-plus {
+  color: #d13e29;
+}
+.awe-share-brand-fg-hover a:hover.awe-share-brand-reddit {
+  color: #ff5700;
+}
+.awe-share-brand-fg-hover a:hover.awe-share-brand-twitter {
+  color: #55acee;
+}
+.awe-share-brand-fg-hover a:hover.awe-share-brand-tumblr {
+  color: #35465c;
+}
+.awe-share-brand-fg-hover a:hover.awe-share-brand-linkedin {
+  color: #0077b5;
+}
+.awe-share-brand-fg-hover a:hover.awe-share-brand-pinterest {
+  color: #bd081c;
+}
+.awe-share-brand-fg-hover a:hover.awe-share-brand-digg {
+  color: #000000;
+}
+.awe-share-brand-fg-hover a:hover.awe-share-brand-delicious {
+  color: #3399ff;
+}
+.awe-share-brand-fg-hover a:hover.awe-share-brand-vk {
+  color: #45668e;
 }
 /*# sourceMappingURL=dist/awe-share.css.map */

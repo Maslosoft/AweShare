@@ -93,9 +93,15 @@ class @Maslosoft.AweShare.Renderer
 
 class @Maslosoft.AweShare.Adapters.Delicious extends @Maslosoft.AweShare.Adapter
 
+	@label = "Save to Delicious"
+
 class @Maslosoft.AweShare.Adapters.Digg extends @Maslosoft.AweShare.Adapter
 
+	@label = "Submit to Digg"
+
 class @Maslosoft.AweShare.Adapters.Facebook extends @Maslosoft.AweShare.Adapter
+
+	@label = "Share on Facebook"
 
 	count: () ->
 		shares = undefined
@@ -107,6 +113,8 @@ class @Maslosoft.AweShare.Adapters.Facebook extends @Maslosoft.AweShare.Adapter
 		return
 
 class @Maslosoft.AweShare.Adapters.GooglePlus extends @Maslosoft.AweShare.Adapter
+
+	@label = "Share on Google+"
 
 	count: () ->
 		if !window.services
@@ -133,15 +141,28 @@ class @Maslosoft.AweShare.Adapters.GooglePlus extends @Maslosoft.AweShare.Adapte
 
 class @Maslosoft.AweShare.Adapters.Linkedin extends @Maslosoft.AweShare.Adapter
 
+	@label = "Share on Linkedin"
+
 class @Maslosoft.AweShare.Adapters.Pinterest extends @Maslosoft.AweShare.Adapter
+
+	@label = "Pin It"
 
 class @Maslosoft.AweShare.Adapters.Reddit extends @Maslosoft.AweShare.Adapter
 
+	@label = "Share on Reddit"
+
 class @Maslosoft.AweShare.Adapters.Tumblr extends @Maslosoft.AweShare.Adapter
+
+	@label = "Share on Tumblr"
 
 class @Maslosoft.AweShare.Adapters.Twitter extends @Maslosoft.AweShare.Adapter
 
+	@label = "Tweet It"
+
 class @Maslosoft.AweShare.Adapters.Vk extends @Maslosoft.AweShare.Adapter
+
+
+	@label = "Share on VK"
 
 
 jQuery(document).ready ()->

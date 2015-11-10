@@ -1,6 +1,8 @@
 
 class @Maslosoft.AweShare.Adapters.Facebook extends @Maslosoft.AweShare.Adapter
 
+	@label = "Share on Facebook"
+
 	count: () ->
 		shares = undefined
 		$.getJSON 'http://graph.facebook.com/?callback=?&ids=' + url, (data) ->

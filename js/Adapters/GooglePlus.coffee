@@ -1,6 +1,8 @@
 
 class @Maslosoft.AweShare.Adapters.GooglePlus extends @Maslosoft.AweShare.Adapter
 
+	@label = "Share on Google+"
+
 	count: () ->
 		if !window.services
 			window.services = {}

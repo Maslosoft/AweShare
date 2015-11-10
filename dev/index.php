@@ -1,26 +1,50 @@
 <?php
 require '_header.php'
 ?>
-<h1>
-	Awe Share Demo
-</h1>
-<p>
-	Horizontal
-<div class="awe-share"></div>
-Selected services
-<div class="awe-share" data-services=" facebook,  twitter, google-plus ,github  "></div>
-Brand background
-<div class="awe-share awe-share-brand-bg"></div>
-Vertical
-<div class="awe-share awe-share-vertical"></div>
+<div class="row">
+	<div class="col-md-12">
+		<h1>
+			Awe Share Demo
+		</h1>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<h4>Horizontal</h4>
+		<div class="awe-share"></div>
+		<h4>Selected services</h4>
+		<div class="awe-share" data-services=" facebook,  twitter, google-plus ,github  "></div>
+		<h4>Brand background</h4>
+		<div class="awe-share awe-share-brand-bg"></div>
+		<h4>Brand background on hover</h4>
+		<div class="awe-share awe-share-brand-bg-hover"></div>
+		<h4>Brand background with hover foreground</h4>
+		<div class="awe-share awe-share-brand-bg awe-share-brand-fg-hover"></div>
 
-Vertical brand background
-<div class="awe-share awe-share-vertical awe-share-brand-bg"></div>
+		<h4>Brand foreground</h4>
+		<div class="awe-share awe-share-brand-fg"></div>
+		<h4>Brand foreground on hover</h4>
+		<div class="awe-share awe-share-brand-fg-hover"></div>
+		<h4>Brand foreground with hover background</h4>
+		<div class="awe-share awe-share-brand-fg awe-share-brand-bg-hover"></div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-2">
+		<h4>Vertical</h4>
+		<div class="awe-share awe-share-vertical"></div>
+	</div>
+	<div class="col-md-2">
+		<h4>Vertical brand background</h4>
+		<div class="awe-share awe-share-vertical awe-share-brand-bg"></div>
+	</div>
+</div>
 </p>
 
 <div id="log">
 
 </div>
+
 <?php
 require '_footer.php'
 ?>
