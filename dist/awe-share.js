@@ -1,5 +1,5 @@
 (function() {
-  var counterCache,
+  var callbackCache, counterCache,
     bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     hasProp = {}.hasOwnProperty;
@@ -49,10 +49,8 @@
       }
       if (data.counter === void 0) {
         data.counter = true;
-      } else {
-        data.counter = !!JSON.parse(data.counter);
       }
-      console.log(!!data.counter);
+      console.log(data.counter);
       if (!data.services.length) {
         ref = Maslosoft.AweShare.Adapters;
         for (name in ref) {
@@ -167,6 +165,8 @@
 
   counterCache = {};
 
+  callbackCache = {};
+
   this.Maslosoft.AweShare.Counter = (function() {
     Counter.prototype.adapter = {};
 
@@ -191,14 +191,31 @@
         if (!counterCache[this.name]) {
           counterCache[this.name] = {};
         }
-        counterCache[this.name][this.adapter.url] = 0;
-        return this.adapter.count(this.setCount);
+        if (!callbackCache[this.name]) {
+          callbackCache[this.name] = {};
+        }
+        if (!callbackCache[this.name][this.adapter.url]) {
+          this.adapter.count(this.setCount);
+          return callbackCache[this.name][this.adapter.url] = [];
+        } else {
+          return callbackCache[this.name][this.adapter.url].push(this.callback);
+        }
       }
     };
 
     Counter.prototype.setCount = function(number) {
+      var callback, i, len, ref, results;
       counterCache[this.name][this.adapter.url] = parseInt(number);
-      return this.callback(this.name, parseInt(number));
+      this.callback(this.name, parseInt(number));
+      if (callbackCache[this.name] && callbackCache[this.name][this.adapter.url]) {
+        ref = callbackCache[this.name][this.adapter.url];
+        results = [];
+        for (i = 0, len = ref.length; i < len; i++) {
+          callback = ref[i];
+          results.push(callback(this.name, parseInt(number)));
+        }
+        return results;
+      }
     };
 
     return Counter;
@@ -265,7 +282,7 @@
       link = jQuery("<a href=\"" + window.url + "\" data-service=\"" + name + "\" class=\"awe-share-brand-" + name + "\" title=\"" + adapter.label + "\">\n	<i class='fa fa-2x fa-" + name + "'></i>\n</a>");
       this.sharer.element.append(link);
       if (this.data.counter) {
-        link.append('<span class="awe-share-counter">0</span>');
+        link.append('<span class="awe-share-counter">&nbsp;</span>');
         counter = new Maslosoft.AweShare.Counter(name, adapter, this.setCounter);
         return counter.count();
       }
@@ -292,6 +309,9 @@
 
     Renderer.prototype.setCounter = function(name, value) {
       value = this.humanize(value);
+      if (value === 0) {
+        value = '&nbsp;';
+      }
       return this.sharer.element.find("a[data-service=" + name + "]").find('.awe-share-counter').html(value);
     };
 

@@ -58,7 +58,7 @@ class @Maslosoft.AweShare.Renderer
 		@sharer.element.append link
 		
 		if @data.counter
-			link.append '<span class="awe-share-counter">0</span>'
+			link.append '<span class="awe-share-counter">&nbsp;</span>'
 			counter = new Maslosoft.AweShare.Counter(name, adapter, @setCounter)
 			counter.count()
 			
@@ -82,4 +82,6 @@ class @Maslosoft.AweShare.Renderer
 		
 	setCounter: (name, value) =>
 		value = @humanize value
+		if value is 0
+			value = '&nbsp;'
 		@sharer.element.find("a[data-service=#{name}]").find('.awe-share-counter').html(value)

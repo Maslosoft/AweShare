@@ -75,10 +75,8 @@ class @Maslosoft.AweShare
 		
 		if data.counter is undefined
 			data.counter = true
-		else
-			data.counter = !!JSON.parse(data.counter)
 		
-		console.log !!data.counter
+		console.log data.counter
 			
 		# Use all services if not defined on element
 		if not data.services.length
@@ -202,9 +200,10 @@ class @Maslosoft.AweShare.Adapter
 
 
 counterCache = {}
-
+callbackCache = {}
 #
 # Cached counter class
+# Cache is broken anyway in most cases
 #
 #
 #
@@ -250,17 +249,27 @@ class @Maslosoft.AweShare.Counter
 		if counterCache[@name] && typeof(counterCache[@name][@adapter.url]) is 'number'
 			@callback @name, counterCache[@name][@adapter.url]
 		else
-			# Pre set cache value to 0 in case of api errors
 			if not counterCache[@name]
 				counterCache[@name] = {}
-			counterCache[@name][@adapter.url] = 0
+			if not callbackCache[@name]
+				callbackCache[@name] = {}
+			if not callbackCache[@name][@adapter.url]
 			
-			# Run adapter defined count and call counter callback
-			@adapter.count @setCount
+				# Run adapter defined count and call counter callback
+				@adapter.count @setCount
+				callbackCache[@name][@adapter.url] = []
+			else
+				callbackCache[@name][@adapter.url].push @callback
 		
 	setCount: (number) =>
+		# "Cache store for: ", @name, @adapter.url, counterCache[@name][@adapter.url]
 		counterCache[@name][@adapter.url] = parseInt(number)
 		@callback @name, parseInt(number)
+		# Call cached callbacks
+		if callbackCache[@name] and callbackCache[@name][@adapter.url]
+			for callback in callbackCache[@name][@adapter.url]
+				# Cached callback for: ", @name, @adapter.url
+				callback @name, parseInt(number)
 
 class @Maslosoft.AweShare.Meta
 
@@ -338,7 +347,7 @@ class @Maslosoft.AweShare.Renderer
 		@sharer.element.append link
 		
 		if @data.counter
-			link.append '<span class="awe-share-counter">0</span>'
+			link.append '<span class="awe-share-counter">&nbsp;</span>'
 			counter = new Maslosoft.AweShare.Counter(name, adapter, @setCounter)
 			counter.count()
 			
@@ -362,6 +371,8 @@ class @Maslosoft.AweShare.Renderer
 		
 	setCounter: (name, value) =>
 		value = @humanize value
+		if value is 0
+			value = '&nbsp;'
 		@sharer.element.find("a[data-service=#{name}]").find('.awe-share-counter').html(value)
 
 

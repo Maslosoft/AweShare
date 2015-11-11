@@ -1,6 +1,6 @@
 
 counterCache = {}
-
+callbackCache = {}
 #
 # Cached counter class
 #
@@ -48,14 +48,24 @@ class @Maslosoft.AweShare.Counter
 		if counterCache[@name] && typeof(counterCache[@name][@adapter.url]) is 'number'
 			@callback @name, counterCache[@name][@adapter.url]
 		else
-			# Pre set cache value to 0 in case of api errors
 			if not counterCache[@name]
 				counterCache[@name] = {}
-			counterCache[@name][@adapter.url] = 0
+			if not callbackCache[@name]
+				callbackCache[@name] = {}
+			if not callbackCache[@name][@adapter.url]
 			
-			# Run adapter defined count and call counter callback
-			@adapter.count @setCount
+				# Run adapter defined count and call counter callback
+				@adapter.count @setCount
+				callbackCache[@name][@adapter.url] = []
+			else
+				callbackCache[@name][@adapter.url].push @callback
 		
 	setCount: (number) =>
+		# "Cache store for: ", @name, @adapter.url, counterCache[@name][@adapter.url]
 		counterCache[@name][@adapter.url] = parseInt(number)
 		@callback @name, parseInt(number)
+		# Call cached callbacks
+		if callbackCache[@name] and callbackCache[@name][@adapter.url]
+			for callback in callbackCache[@name][@adapter.url]
+				# Cached callback for: ", @name, @adapter.url
+				callback @name, parseInt(number)

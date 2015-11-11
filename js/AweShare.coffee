@@ -72,10 +72,8 @@ class @Maslosoft.AweShare
 		
 		if data.counter is undefined
 			data.counter = true
-		else
-			data.counter = !!JSON.parse(data.counter)
 		
-		console.log !!data.counter
+		console.log data.counter
 			
 		# Use all services if not defined on element
 		if not data.services.length
