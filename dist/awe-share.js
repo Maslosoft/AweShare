@@ -30,9 +30,10 @@
       }
       data = this.element.data();
       meta = new Maslosoft.AweShare.Meta;
-      if (data.services) {
+      if (typeof data.services === 'string') {
         data.services = data.services.replace(/\s*/g, '').split(',');
-      } else {
+      }
+      if (typeof data.services === 'undefined') {
         data.services = [];
       }
       if (!data.url) {
@@ -50,7 +51,6 @@
       if (data.counter === void 0) {
         data.counter = true;
       }
-      console.log(data.counter);
       if (!data.services.length) {
         ref = Maslosoft.AweShare.Adapters;
         for (name in ref) {
@@ -269,6 +269,7 @@
       this.sharer = sharer;
       this.data = data;
       this.adapters = adapters;
+      this.sharer.element.html('');
       ref = this.adapters;
       for (name in ref) {
         adapter = ref[name];

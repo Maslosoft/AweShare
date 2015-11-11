@@ -52,9 +52,9 @@ class @Maslosoft.AweShare
 		meta = new Maslosoft.AweShare.Meta
 
 		# Get services from element
-		if data.services
+		if typeof(data.services) is 'string'
 			data.services = data.services.replace(/\s*/g, '').split ','
-		else
+		if typeof(data.services) is 'undefined'
 			data.services = []
 			
 		# Set url if empty
@@ -75,8 +75,6 @@ class @Maslosoft.AweShare
 		
 		if data.counter is undefined
 			data.counter = true
-		
-		console.log data.counter
 			
 		# Use all services if not defined on element
 		if not data.services.length
@@ -203,7 +201,6 @@ counterCache = {}
 callbackCache = {}
 #
 # Cached counter class
-# Cache is broken anyway in most cases
 #
 #
 #
@@ -327,6 +324,9 @@ class @Maslosoft.AweShare.Renderer
 		@sharer = sharer
 		@data = data
 		@adapters = adapters
+		
+		# Remove everything inside element
+		@sharer.element.html('')
 
 		for name, adapter of @adapters
 			@render name, adapter

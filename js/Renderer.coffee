@@ -38,6 +38,9 @@ class @Maslosoft.AweShare.Renderer
 		@sharer = sharer
 		@data = data
 		@adapters = adapters
+		
+		# Remove everything inside element
+		@sharer.element.html('')
 
 		for name, adapter of @adapters
 			@render name, adapter
