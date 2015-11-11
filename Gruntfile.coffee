@@ -2,7 +2,10 @@ coffees = [
 	'_ns'
 	'AweShare'
 	'Adapter'
+	'Counter'
+	'Meta'
 	'Renderer'
+	'Window'
 	'Adapters/*'
 	'_init'
 ]

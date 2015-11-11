@@ -11,11 +11,11 @@ require '_header.php'
 <div class="row">
 	<div class="col-md-12">
 		<h4>Horizontal</h4>
-		<div class="awe-share"></div>
-		<h4>Selected services</h4>
-		<div class="awe-share" data-services=" facebook,  twitter, google-plus ,github  "></div>
+		<div class="awe-share" data-url="http://stackoverflow.com/"></div>
+		<h4>Selected services and no counter</h4>
+		<div class="awe-share" data-counter="false" data-services=" facebook,  twitter, google-plus ,github  "></div>
 		<h4>Brand background</h4>
-		<div class="awe-share awe-share-brand-bg"></div>
+		<div class="awe-share awe-share-brand-bg" data-url="http://google.com/"></div>
 		<h4>Brand background on hover</h4>
 		<div class="awe-share awe-share-brand-bg-hover"></div>
 		<h4>Brand background with hover foreground</h4>

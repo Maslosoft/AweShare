@@ -9,19 +9,23 @@
 @digg: #000000;
 @delicious:#3399ff;
 @vk:#45668e;
+@odnoklassniki:#ed812b;
 
 // Horizontal
 .awe-share{
 	a{
 		padding:.6em .44em;
 		width:2.3em;
-		height:2em;
 		text-align:center;
 		display:inline-block;
 		// For compatibility with twitter bootstrap etc, which overrides box sizing
 		-webkit-box-sizing: content-box;
 		-moz-box-sizing: content-box;
 		box-sizing: content-box;
+		span{
+			display: block;
+			margin-bottom: -.44em
+		}
 	}
 }
 
@@ -67,6 +71,9 @@
 		&.awe-share-brand-vk{
 			background-color:@vk;
 		}
+		&.awe-share-brand-odnoklassniki{
+			background-color:@odnoklassniki;
+		}
 	}
 }
 
@@ -102,6 +109,9 @@
 		}
 		&.awe-share-brand-vk{
 			color:@vk;
+		}
+		&.awe-share-brand-odnoklassniki{
+			color:@odnoklassniki;
 		}
 	}
 }
@@ -141,6 +151,9 @@
 			&.awe-share-brand-vk{
 				background-color:@vk;
 			}
+			&.awe-share-brand-odnoklassniki{
+				background-color:@odnoklassniki;
+			}
 		}
 	}
 }
@@ -179,6 +192,9 @@
 			}
 			&.awe-share-brand-vk{
 				color:@vk;
+			}
+			&.awe-share-brand-odnoklassniki{
+				color:@odnoklassniki;
 			}
 		}
 	}

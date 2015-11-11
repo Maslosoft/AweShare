@@ -1,12 +1,15 @@
 .awe-share a {
   padding: .6em .44em;
   width: 2.3em;
-  height: 2em;
   text-align: center;
   display: inline-block;
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
+}
+.awe-share a span {
+  display: block;
+  margin-bottom: -0.44em;
 }
 .awe-share-vertical a {
   display: block;
@@ -44,6 +47,9 @@
 .awe-share-brand-bg a.awe-share-brand-vk {
   background-color: #45668e;
 }
+.awe-share-brand-bg a.awe-share-brand-odnoklassniki {
+  background-color: #ed812b;
+}
 .awe-share-brand-fg a.awe-share-brand-facebook {
   color: #3b5998;
 }
@@ -73,6 +79,9 @@
 }
 .awe-share-brand-fg a.awe-share-brand-vk {
   color: #45668e;
+}
+.awe-share-brand-fg a.awe-share-brand-odnoklassniki {
+  color: #ed812b;
 }
 .awe-share-brand-bg-hover a:hover {
   color: white;
@@ -107,6 +116,9 @@
 .awe-share-brand-bg-hover a:hover.awe-share-brand-vk {
   background-color: #45668e;
 }
+.awe-share-brand-bg-hover a:hover.awe-share-brand-odnoklassniki {
+  background-color: #ed812b;
+}
 .awe-share-brand-fg-hover a:hover {
   background-color: transparent;
 }
@@ -139,5 +151,8 @@
 }
 .awe-share-brand-fg-hover a:hover.awe-share-brand-vk {
   color: #45668e;
+}
+.awe-share-brand-fg-hover a:hover.awe-share-brand-odnoklassniki {
+  color: #ed812b;
 }
 /*# sourceMappingURL=dist/awe-share.css.map */

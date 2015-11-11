@@ -3,21 +3,18 @@ class @Maslosoft.AweShare.Adapters.GooglePlus extends @Maslosoft.AweShare.Adapte
 
 	@label = "Share on Google+"
 
-	count: () ->
-		if !window.services
+	count: (callback) ->
+		if not window.services
 			window.services = {}
+		if not window.services.gplus
 			window.services.gplus = {}
 
-		window.services.gplus.cb = (number) ->
-			window.gplusShares = number
-			return
+		window.services.gplus.cb = (shares) =>
+			callback shares
 
-		$.getScript 'http://share.yandex.ru/gpp.xml?url=' + @url, ->
-			shares = window.gplusShares
-			if shares > 0 or z == 1
-				el.find('a[data-count="gplus"]').after '<span class="share42-counter">' + shares + '</span>'
-			return
-		return
+		$.getScript "http://share.yandex.ru/gpp.xml?url=#{@url}"
+		.fail () ->
+			callback 0
 
 	#
 	#
@@ -25,3 +22,4 @@ class @Maslosoft.AweShare.Adapters.GooglePlus extends @Maslosoft.AweShare.Adapte
 	# @var window Maslosoft.AweShare.Window
 	#
 	decorate: (window) ->
+		window.url = "https://plus.google.com/share?url=#{@url}"

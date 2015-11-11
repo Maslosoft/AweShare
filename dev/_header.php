@@ -2,7 +2,8 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
+		<title>Maslosoft Awe Share</title>
+		<meta name="Description" content="Font Awesome Based Social Share Buttons"/>
 		<style>
 			body{
 				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
