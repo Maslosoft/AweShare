@@ -51,6 +51,9 @@
       if (data.counter === void 0) {
         data.counter = true;
       }
+      if (data.counterEmpty === void 0) {
+        data.counterEmpty = '';
+      }
       if (!data.services.length) {
         ref = Maslosoft.AweShare.Adapters;
         for (name in ref) {
@@ -260,6 +263,8 @@
 
     Renderer.prototype.adapters = {};
 
+    Renderer.prototype.empty = '';
+
     function Renderer(sharer, data, adapters) {
       this.setCounter = bind(this.setCounter, this);
       var adapter, name, ref;
@@ -269,6 +274,7 @@
       this.sharer = sharer;
       this.data = data;
       this.adapters = adapters;
+      this.empty = this.data.counterEmpty;
       this.sharer.element.html('');
       ref = this.adapters;
       for (name in ref) {
@@ -283,7 +289,7 @@
       link = jQuery("<a href=\"" + window.url + "\" data-service=\"" + name + "\" class=\"awe-share-brand-" + name + "\" title=\"" + adapter.label + "\">\n	<i class='fa fa-2x fa-" + name + "'></i>\n</a>");
       this.sharer.element.append(link);
       if (this.data.counter) {
-        link.append('<span class="awe-share-counter">&nbsp;</span>');
+        link.append("<span class=\"awe-share-counter\">" + this.empty + "</span>");
         counter = new Maslosoft.AweShare.Counter(name, adapter, this.setCounter);
         return counter.count();
       }
@@ -311,7 +317,7 @@
     Renderer.prototype.setCounter = function(name, value) {
       value = this.humanize(value);
       if (value === 0) {
-        value = '&nbsp;';
+        value = this.empty;
       }
       return this.sharer.element.find("a[data-service=" + name + "]").find('.awe-share-counter').html(value);
     };

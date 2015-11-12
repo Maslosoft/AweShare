@@ -8,12 +8,20 @@
   box-sizing: content-box;
   text-decoration: none;
 }
+.awe-share a i {
+  display: block;
+}
 .awe-share a span {
   display: block;
   margin-bottom: -0.44em;
 }
+.awe-share a span:after {
+  content: '.';
+  visibility: hidden;
+}
 .awe-share-vertical a {
   display: block;
+  min-height: 2em;
 }
 .awe-share-brand-bg a {
   color: white;

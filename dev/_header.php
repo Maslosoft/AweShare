@@ -1,3 +1,11 @@
+<?php
+// Bootstrap switch
+$bs = true;
+if(isset($_GET['bs']) && $_GET['bs'] == false)
+{
+	$bs = false;
+};
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -35,8 +43,11 @@
 				color: white;
 			}
 		</style>
+		<!--Option to disable bootstrap styles-->
+		<?php if($bs):?>
 		<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
 		<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+		<?php endif;?>
 		<link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="../dist/awe-share.css" />
 
@@ -77,6 +88,11 @@
 		<div class="container-fluid">
 			<nav>
 				<h1><?= basename($_SERVER['SCRIPT_FILENAME'], '.php') ?></h1>
+				<?php if($bs):?>
+					<a href="?bs=0">Disable twitter bootstrap</a>
+				<?php else:?>
+					<a href="?bs=1">Enable twitter bootstrap</a>
+				<?php endif;?>
 				<ul>
 					<li class="link">
 						<a href="./index.php">Index</a>

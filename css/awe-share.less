@@ -23,9 +23,16 @@
 		-moz-box-sizing: content-box;
 		box-sizing: content-box;
 		text-decoration: none;
+		i{
+			display: block;
+		}
 		span{
 			display: block;
-			margin-bottom: -.44em
+			margin-bottom: -.44em;
+			&:after{
+				content: '.';
+				visibility: hidden;
+			}
 		}
 	}
 }
@@ -34,6 +41,7 @@
 .awe-share-vertical{
 	a{
 		display:block;
+		min-height:2em;
 	}
 }
 

@@ -10,8 +10,8 @@ require '_header.php'
 </div>
 <div class="row">
 	<div class="col-md-12">
-		<h4>Horizontal (http://stackoverflow.com/)</h4>
-		<div class="awe-share" data-url="http://stackoverflow.com/"></div>
+		<h4>Horizontal (http://stackoverflow.com/) empty counter placeholder</h4>
+		<div class="awe-share" data-url="http://stackoverflow.com/" data-counter-empty="&#9787;"></div>
 		<h4>Selected services and no counter</h4>
 		<div class="awe-share" data-counter="false" data-services=" facebook,  twitter, google-plus ,github  "></div>
 		<h4>Brand background (http://google.com/)</h4>

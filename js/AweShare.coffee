@@ -69,9 +69,11 @@ class @Maslosoft.AweShare
 			data.image = meta.getProperty 'og:image'
 			
 		# Setup counter
-		
 		if data.counter is undefined
 			data.counter = true
+			
+		if data.counterEmpty is undefined
+			data.counterEmpty = ''
 			
 		# Use all services if not defined on element
 		if not data.services.length
