@@ -384,7 +384,7 @@ class @Maslosoft.AweShare.Renderer
 class @Maslosoft.AweShare.Window
 
 	# Name
-	name: '_blank'
+	name: 'maslosoft-awe-share'
 	
 	# Options
 	menubar: 0
@@ -417,17 +417,29 @@ class @Maslosoft.AweShare.Window
 		@description = data.description
 	
 	open: () =>
-		if @width is ''
-			@width = Math.ceil(window.innerWidth / 2)
-		@width = Math.min(@width, window.innerWidth)
-		if @height is ''
-			@height = Math.ceil(window.innerHeight / 2)
-		@height = Math.min(@height, window.innerHeight)
-		if @top is ''
-			@top = Math.ceil(window.innerHeight / 2) - Math.ceil(@height / 2)
-		if @left is ''
-			@left = Math.ceil(window.innerWidth / 2) - Math.ceil(@width / 2)
+		w = screen.width or window.outerWidth
+		h = screen.height or window.outerHeight
 		
+		# Calculate width if not available preffered width
+		if @width is ''
+			@width = Math.ceil(w / 2)
+		# Restrict width to not overflow device
+		@width = Math.min(@width, w)
+		
+		# Calculate height if not available preffered height
+		if @height is ''
+			@height = Math.ceil(h / 2)
+		
+		# Restrict height to not overflow device height
+		@height = Math.min(@height, h)
+		
+		# Center window
+		if @top is ''
+			@top = Math.ceil(h / 2) - Math.ceil(@height / 2)
+		if @left is ''
+			@left = Math.ceil(w / 2) - Math.ceil(@width / 2)
+		
+		# Assign window specs
 		specs = []
 		for name in ['menubar', 'resizable', 'scrollbars', 'status', 'toolbar', 'top', 'left', 'width', 'height']
 			value = @[name]

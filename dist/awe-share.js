@@ -327,7 +327,7 @@
   })();
 
   this.Maslosoft.AweShare.Window = (function() {
-    Window.prototype.name = '_blank';
+    Window.prototype.name = 'maslosoft-awe-share';
 
     Window.prototype.menubar = 0;
 
@@ -360,20 +360,22 @@
     }
 
     Window.prototype.open = function() {
-      var i, len, name, ref, specs, value;
+      var h, i, len, name, ref, specs, value, w;
+      w = screen.width || window.outerWidth;
+      h = screen.height || window.outerHeight;
       if (this.width === '') {
-        this.width = Math.ceil(window.innerWidth / 2);
+        this.width = Math.ceil(w / 2);
       }
-      this.width = Math.min(this.width, window.innerWidth);
+      this.width = Math.min(this.width, w);
       if (this.height === '') {
-        this.height = Math.ceil(window.innerHeight / 2);
+        this.height = Math.ceil(h / 2);
       }
-      this.height = Math.min(this.height, window.innerHeight);
+      this.height = Math.min(this.height, h);
       if (this.top === '') {
-        this.top = Math.ceil(window.innerHeight / 2) - Math.ceil(this.height / 2);
+        this.top = Math.ceil(h / 2) - Math.ceil(this.height / 2);
       }
       if (this.left === '') {
-        this.left = Math.ceil(window.innerWidth / 2) - Math.ceil(this.width / 2);
+        this.left = Math.ceil(w / 2) - Math.ceil(this.width / 2);
       }
       specs = [];
       ref = ['menubar', 'resizable', 'scrollbars', 'status', 'toolbar', 'top', 'left', 'width', 'height'];
