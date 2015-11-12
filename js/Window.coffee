@@ -38,12 +38,14 @@ class @Maslosoft.AweShare.Window
 	open: () =>
 		if @width is ''
 			@width = Math.ceil(window.innerWidth / 2)
+		@width = Math.min(@width, window.innerWidth)
 		if @height is ''
 			@height = Math.ceil(window.innerHeight / 2)
+		@height = Math.min(@height, window.innerHeight)
 		if @top is ''
-			@top = Math.ceil(window.innerHeight / 4)
+			@top = Math.ceil(window.innerHeight / 2) - Math.ceil(@height / 2)
 		if @left is ''
-			@left = Math.ceil(window.innerWidth / 4)
+			@left = Math.ceil(window.innerWidth / 2) - Math.ceil(@width / 2)
 		
 		specs = []
 		for name in ['menubar', 'resizable', 'scrollbars', 'status', 'toolbar', 'top', 'left', 'width', 'height']

@@ -419,12 +419,14 @@ class @Maslosoft.AweShare.Window
 	open: () =>
 		if @width is ''
 			@width = Math.ceil(window.innerWidth / 2)
+		@width = Math.min(@width, window.innerWidth)
 		if @height is ''
 			@height = Math.ceil(window.innerHeight / 2)
+		@height = Math.min(@height, window.innerHeight)
 		if @top is ''
-			@top = Math.ceil(window.innerHeight / 4)
+			@top = Math.ceil(window.innerHeight / 2) - Math.ceil(@height / 2)
 		if @left is ''
-			@left = Math.ceil(window.innerWidth / 4)
+			@left = Math.ceil(window.innerWidth / 2) - Math.ceil(@width / 2)
 		
 		specs = []
 		for name in ['menubar', 'resizable', 'scrollbars', 'status', 'toolbar', 'top', 'left', 'width', 'height']
@@ -447,6 +449,8 @@ class @Maslosoft.AweShare.Adapters.Delicious extends @Maslosoft.AweShare.Adapter
 	
 	decorate: (window) ->
 		window.url = "http://delicious.com/save?url=#{@url}&title=#{window.title}&note=#{window.description}"
+		window.width = 710
+		window.height = 660
 
 class @Maslosoft.AweShare.Adapters.Digg extends @Maslosoft.AweShare.Adapter
 
@@ -463,6 +467,8 @@ class @Maslosoft.AweShare.Adapters.Digg extends @Maslosoft.AweShare.Adapter
 	
 	decorate: (window) ->
 		window.url = "http://digg.com/submit?url=#{@url}"
+		window.width = 600
+		window.height = 500
 
 class @Maslosoft.AweShare.Adapters.Facebook extends @Maslosoft.AweShare.Adapter
 
@@ -479,6 +485,8 @@ class @Maslosoft.AweShare.Adapters.Facebook extends @Maslosoft.AweShare.Adapter
 		
 	decorate: (window) ->
 		window.url = "http://www.facebook.com/sharer.php?m2w&s=100&p[url]=#{@url}&p[title]=#{window.title}&p[summary]=#{window.description}&p[images][0]=#{@image}"
+		window.width = 550
+		window.height = 359
 
 class @Maslosoft.AweShare.Adapters.GooglePlus extends @Maslosoft.AweShare.Adapter
 
@@ -504,6 +512,8 @@ class @Maslosoft.AweShare.Adapters.GooglePlus extends @Maslosoft.AweShare.Adapte
 	#
 	decorate: (window) ->
 		window.url = "https://plus.google.com/share?url=#{@url}"
+		window.width = 490
+		window.height = 460
 
 class @Maslosoft.AweShare.Adapters.Linkedin extends @Maslosoft.AweShare.Adapter
 
@@ -518,6 +528,8 @@ class @Maslosoft.AweShare.Adapters.Linkedin extends @Maslosoft.AweShare.Adapter
 		  
 	decorate: (window) ->
 		window.url = "http://www.linkedin.com/shareArticle?mini=true&url=#{@url}&title=#{window.title}"
+		window.width = 600
+		window.height = 600
 
 class @Maslosoft.AweShare.Adapters.Odnoklassniki extends @Maslosoft.AweShare.Adapter
 
@@ -535,7 +547,9 @@ class @Maslosoft.AweShare.Adapters.Odnoklassniki extends @Maslosoft.AweShare.Ada
 			callback shares
 	
 	decorate: (window) ->
-		window.url = "http://www.odnoklassniki.ru/dk?st.cmd=addShare&st._surl=#{@url}&title=#{window.title}" 
+		window.url = "http://www.odnoklassniki.ru/dk?st.cmd=addShare&st._surl=#{@url}&title=#{window.title}"
+		window.width = 600
+		window.height = 500 
 
 class @Maslosoft.AweShare.Adapters.Pinterest extends @Maslosoft.AweShare.Adapter
 
@@ -550,6 +564,8 @@ class @Maslosoft.AweShare.Adapters.Pinterest extends @Maslosoft.AweShare.Adapter
 		
 	decorate: (window) ->
 		window.url = "http://pinterest.com/pin/create/button/?url=#{@url}&media=#{@image}&description=#{window.title}"
+		window.width = 770
+		window.height = 760
 
 class @Maslosoft.AweShare.Adapters.Reddit extends @Maslosoft.AweShare.Adapter
 
@@ -557,6 +573,8 @@ class @Maslosoft.AweShare.Adapters.Reddit extends @Maslosoft.AweShare.Adapter
 	
 	decorate: (window) ->
 		window.url = "http://reddit.com/submit?url=#{@url}&title=#{window.title}"
+		window.width = 600
+		window.height = 500
 
 class @Maslosoft.AweShare.Adapters.Tumblr extends @Maslosoft.AweShare.Adapter
 
@@ -564,6 +582,8 @@ class @Maslosoft.AweShare.Adapters.Tumblr extends @Maslosoft.AweShare.Adapter
 	
 	decorate: (window) ->
 		window.url = "http://www.tumblr.com/share?v=3&u=#{@url}&t=#{window.title}&s=#{window.description}"
+		window.width = 600
+		window.height = 500
 
 class @Maslosoft.AweShare.Adapters.Twitter extends @Maslosoft.AweShare.Adapter
 
@@ -578,6 +598,8 @@ class @Maslosoft.AweShare.Adapters.Twitter extends @Maslosoft.AweShare.Adapter
 		
 	decorate: (window) ->
 		window.url = "https://twitter.com/intent/tweet?text=#{window.title}&url=#{@url}"
+		window.width = 480
+		window.height = 280
 
 class @Maslosoft.AweShare.Adapters.Vk extends @Maslosoft.AweShare.Adapter
 
@@ -594,6 +616,8 @@ class @Maslosoft.AweShare.Adapters.Vk extends @Maslosoft.AweShare.Adapter
 			
 	decorate: (window) ->
 		window.url = "http://vk.com/share.php?url=#{@url}&title=#{window.title}&image=#{@image}&description=#{window.description}"
+		window.width = 655
+		window.height = 429
 
 
 jQuery(document).ready ()->

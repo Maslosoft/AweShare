@@ -364,14 +364,16 @@
       if (this.width === '') {
         this.width = Math.ceil(window.innerWidth / 2);
       }
+      this.width = Math.min(this.width, window.innerWidth);
       if (this.height === '') {
         this.height = Math.ceil(window.innerHeight / 2);
       }
+      this.height = Math.min(this.height, window.innerHeight);
       if (this.top === '') {
-        this.top = Math.ceil(window.innerHeight / 4);
+        this.top = Math.ceil(window.innerHeight / 2) - Math.ceil(this.height / 2);
       }
       if (this.left === '') {
-        this.left = Math.ceil(window.innerWidth / 4);
+        this.left = Math.ceil(window.innerWidth / 2) - Math.ceil(this.width / 2);
       }
       specs = [];
       ref = ['menubar', 'resizable', 'scrollbars', 'status', 'toolbar', 'top', 'left', 'width', 'height'];
@@ -411,7 +413,9 @@
     };
 
     Delicious.prototype.decorate = function(window) {
-      return window.url = "http://delicious.com/save?url=" + this.url + "&title=" + window.title + "&note=" + window.description;
+      window.url = "http://delicious.com/save?url=" + this.url + "&title=" + window.title + "&note=" + window.description;
+      window.width = 710;
+      return window.height = 660;
     };
 
     return Delicious;
@@ -443,7 +447,9 @@
     };
 
     Digg.prototype.decorate = function(window) {
-      return window.url = "http://digg.com/submit?url=" + this.url;
+      window.url = "http://digg.com/submit?url=" + this.url;
+      window.width = 600;
+      return window.height = 500;
     };
 
     return Digg;
@@ -475,7 +481,9 @@
     };
 
     Facebook.prototype.decorate = function(window) {
-      return window.url = "http://www.facebook.com/sharer.php?m2w&s=100&p[url]=" + this.url + "&p[title]=" + window.title + "&p[summary]=" + window.description + "&p[images][0]=" + this.image;
+      window.url = "http://www.facebook.com/sharer.php?m2w&s=100&p[url]=" + this.url + "&p[title]=" + window.title + "&p[summary]=" + window.description + "&p[images][0]=" + this.image;
+      window.width = 550;
+      return window.height = 359;
     };
 
     return Facebook;
@@ -509,7 +517,9 @@
     };
 
     GooglePlus.prototype.decorate = function(window) {
-      return window.url = "https://plus.google.com/share?url=" + this.url;
+      window.url = "https://plus.google.com/share?url=" + this.url;
+      window.width = 490;
+      return window.height = 460;
     };
 
     return GooglePlus;
@@ -538,7 +548,9 @@
     };
 
     Linkedin.prototype.decorate = function(window) {
-      return window.url = "http://www.linkedin.com/shareArticle?mini=true&url=" + this.url + "&title=" + window.title;
+      window.url = "http://www.linkedin.com/shareArticle?mini=true&url=" + this.url + "&title=" + window.title;
+      window.width = 600;
+      return window.height = 600;
     };
 
     return Linkedin;
@@ -569,7 +581,9 @@
     };
 
     Odnoklassniki.prototype.decorate = function(window) {
-      return window.url = "http://www.odnoklassniki.ru/dk?st.cmd=addShare&st._surl=" + this.url + "&title=" + window.title;
+      window.url = "http://www.odnoklassniki.ru/dk?st.cmd=addShare&st._surl=" + this.url + "&title=" + window.title;
+      window.width = 600;
+      return window.height = 500;
     };
 
     return Odnoklassniki;
@@ -596,7 +610,9 @@
     };
 
     Pinterest.prototype.decorate = function(window) {
-      return window.url = "http://pinterest.com/pin/create/button/?url=" + this.url + "&media=" + this.image + "&description=" + window.title;
+      window.url = "http://pinterest.com/pin/create/button/?url=" + this.url + "&media=" + this.image + "&description=" + window.title;
+      window.width = 770;
+      return window.height = 760;
     };
 
     return Pinterest;
@@ -613,7 +629,9 @@
     Reddit.label = "Share on Reddit";
 
     Reddit.prototype.decorate = function(window) {
-      return window.url = "http://reddit.com/submit?url=" + this.url + "&title=" + window.title;
+      window.url = "http://reddit.com/submit?url=" + this.url + "&title=" + window.title;
+      window.width = 600;
+      return window.height = 500;
     };
 
     return Reddit;
@@ -630,7 +648,9 @@
     Tumblr.label = "Share on Tumblr";
 
     Tumblr.prototype.decorate = function(window) {
-      return window.url = "http://www.tumblr.com/share?v=3&u=" + this.url + "&t=" + window.title + "&s=" + window.description;
+      window.url = "http://www.tumblr.com/share?v=3&u=" + this.url + "&t=" + window.title + "&s=" + window.description;
+      window.width = 600;
+      return window.height = 500;
     };
 
     return Tumblr;
@@ -657,7 +677,9 @@
     };
 
     Twitter.prototype.decorate = function(window) {
-      return window.url = "https://twitter.com/intent/tweet?text=" + window.title + "&url=" + this.url;
+      window.url = "https://twitter.com/intent/tweet?text=" + window.title + "&url=" + this.url;
+      window.width = 480;
+      return window.height = 280;
     };
 
     return Twitter;
@@ -690,7 +712,9 @@
     };
 
     Vk.prototype.decorate = function(window) {
-      return window.url = "http://vk.com/share.php?url=" + this.url + "&title=" + window.title + "&image=" + this.image + "&description=" + window.description;
+      window.url = "http://vk.com/share.php?url=" + this.url + "&title=" + window.title + "&image=" + this.image + "&description=" + window.description;
+      window.width = 655;
+      return window.height = 429;
     };
 
     return Vk;

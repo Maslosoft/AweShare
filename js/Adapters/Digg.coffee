@@ -14,3 +14,5 @@ class @Maslosoft.AweShare.Adapters.Digg extends @Maslosoft.AweShare.Adapter
 	
 	decorate: (window) ->
 		window.url = "http://digg.com/submit?url=#{@url}"
+		window.width = 600
+		window.height = 500

@@ -23,3 +23,5 @@ class @Maslosoft.AweShare.Adapters.GooglePlus extends @Maslosoft.AweShare.Adapte
 	#
 	decorate: (window) ->
 		window.url = "https://plus.google.com/share?url=#{@url}"
+		window.width = 490
+		window.height = 460

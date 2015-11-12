@@ -14,3 +14,5 @@ class @Maslosoft.AweShare.Adapters.Facebook extends @Maslosoft.AweShare.Adapter
 		
 	decorate: (window) ->
 		window.url = "http://www.facebook.com/sharer.php?m2w&s=100&p[url]=#{@url}&p[title]=#{window.title}&p[summary]=#{window.description}&p[images][0]=#{@image}"
+		window.width = 550
+		window.height = 359

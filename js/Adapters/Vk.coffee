@@ -14,3 +14,5 @@ class @Maslosoft.AweShare.Adapters.Vk extends @Maslosoft.AweShare.Adapter
 			
 	decorate: (window) ->
 		window.url = "http://vk.com/share.php?url=#{@url}&title=#{window.title}&image=#{@image}&description=#{window.description}"
+		window.width = 655
+		window.height = 429

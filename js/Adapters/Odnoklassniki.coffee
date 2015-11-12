@@ -15,4 +15,6 @@ class @Maslosoft.AweShare.Adapters.Odnoklassniki extends @Maslosoft.AweShare.Ada
 			callback shares
 	
 	decorate: (window) ->
-		window.url = "http://www.odnoklassniki.ru/dk?st.cmd=addShare&st._surl=#{@url}&title=#{window.title}" 
+		window.url = "http://www.odnoklassniki.ru/dk?st.cmd=addShare&st._surl=#{@url}&title=#{window.title}"
+		window.width = 600
+		window.height = 500 

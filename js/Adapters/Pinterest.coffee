@@ -12,3 +12,5 @@ class @Maslosoft.AweShare.Adapters.Pinterest extends @Maslosoft.AweShare.Adapter
 		
 	decorate: (window) ->
 		window.url = "http://pinterest.com/pin/create/button/?url=#{@url}&media=#{@image}&description=#{window.title}"
+		window.width = 770
+		window.height = 760

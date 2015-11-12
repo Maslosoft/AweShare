@@ -12,3 +12,5 @@ class @Maslosoft.AweShare.Adapters.Twitter extends @Maslosoft.AweShare.Adapter
 		
 	decorate: (window) ->
 		window.url = "https://twitter.com/intent/tweet?text=#{window.title}&url=#{@url}"
+		window.width = 480
+		window.height = 280

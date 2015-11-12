@@ -12,3 +12,5 @@ class @Maslosoft.AweShare.Adapters.Delicious extends @Maslosoft.AweShare.Adapter
 	
 	decorate: (window) ->
 		window.url = "http://delicious.com/save?url=#{@url}&title=#{window.title}&note=#{window.description}"
+		window.width = 710
+		window.height = 660

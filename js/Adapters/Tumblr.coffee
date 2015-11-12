@@ -5,3 +5,5 @@ class @Maslosoft.AweShare.Adapters.Tumblr extends @Maslosoft.AweShare.Adapter
 	
 	decorate: (window) ->
 		window.url = "http://www.tumblr.com/share?v=3&u=#{@url}&t=#{window.title}&s=#{window.description}"
+		window.width = 600
+		window.height = 500

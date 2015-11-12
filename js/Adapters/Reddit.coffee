@@ -5,3 +5,5 @@ class @Maslosoft.AweShare.Adapters.Reddit extends @Maslosoft.AweShare.Adapter
 	
 	decorate: (window) ->
 		window.url = "http://reddit.com/submit?url=#{@url}&title=#{window.title}"
+		window.width = 600
+		window.height = 500

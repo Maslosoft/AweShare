@@ -12,3 +12,5 @@ class @Maslosoft.AweShare.Adapters.Linkedin extends @Maslosoft.AweShare.Adapter
 		  
 	decorate: (window) ->
 		window.url = "http://www.linkedin.com/shareArticle?mini=true&url=#{@url}&title=#{window.title}"
+		window.width = 600
+		window.height = 600
