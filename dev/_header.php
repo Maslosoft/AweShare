@@ -54,7 +54,7 @@ if (isset($_GET['bs']) && $_GET['bs'] == false)
 		<script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
 		<script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="../dist/awe-share.js"></script>
-
+		<script type="text/javascript" src="../dist/lang/pl.js"></script>
 		<?php
 		$simple = [];
 		$combined = [];

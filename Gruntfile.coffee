@@ -9,7 +9,9 @@ coffees = [
 	'Adapters/*'
 	'_init'
 ]
-
+langs = [
+	'pl'
+]
 less = [
 	'css/awe-share.less'
 ]
@@ -18,6 +20,10 @@ module.exports = (grunt) ->
 	c = new Array
 	for name in coffees
 		c.push "js/#{name}.coffee"
+
+	i18n = {}
+	for name in langs
+		i18n["dist/lang/#{name}.js"] = "js/lang/#{name}.coffee"
 
 	# Project configuration.
 	grunt.initConfig
@@ -30,6 +36,8 @@ module.exports = (grunt) ->
 				files: [
 					'dist/awe-share.js': c
 				]
+			langs:
+				files: i18n
 		uglify:
 			compile:
 				files:
