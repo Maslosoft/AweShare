@@ -74,7 +74,11 @@ class @Maslosoft.AweShare
 			
 		if data.counterEmpty is undefined
 			data.counterEmpty = ''
-			
+
+		# Setup tip
+		if data.tip is undefined
+			data.tip = false
+
 		# Use all services if not defined on element
 		if not data.services.length
 			for name, adapter of Maslosoft.AweShare.Adapters

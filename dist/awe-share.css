@@ -21,6 +21,16 @@
   content: '.';
   visibility: hidden;
 }
+.awe-share.awe-share-pin {
+  position: fixed;
+  z-index: 9999;
+}
+.awe-share.awe-share-pin-left {
+  left: 0;
+}
+.awe-share.awe-share-pin-right {
+  right: 0;
+}
 .awe-share-collapse-empty a span:after {
   content: '';
   display: none;

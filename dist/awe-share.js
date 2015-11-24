@@ -54,6 +54,9 @@
       if (data.counterEmpty === void 0) {
         data.counterEmpty = '';
       }
+      if (data.tip === void 0) {
+        data.tip = false;
+      }
       if (!data.services.length) {
         ref = Maslosoft.AweShare.Adapters;
         for (name in ref) {
@@ -265,9 +268,12 @@
 
     Renderer.prototype.empty = '';
 
+    Renderer.prototype.window = null;
+
     function Renderer(sharer, data, adapters) {
       this.setCounter = bind(this.setCounter, this);
-      var adapter, name, ref;
+      this.onScroll = bind(this.onScroll, this);
+      var adapter, id, name, placement, ref, selector;
       this.sharer = {};
       this.adapters = {};
       this.data = {};
@@ -275,7 +281,46 @@
       this.data = data;
       this.adapters = adapters;
       this.empty = this.data.counterEmpty;
+      this.window = jQuery(window);
       this.sharer.element.html('');
+      if (typeof this.data.pin === 'number') {
+        this.data.pinTop = this.data.pin;
+      }
+      if (typeof this.data.pinScroll === 'undefined') {
+        this.data.pinScroll = this.data.pinTop;
+      }
+      if (this.data.pinTop) {
+        this.sharer.element.addClass('awe-share-pin');
+        if (!this.data.pinPosition || this.data.pinPosition === 'left') {
+          this.sharer.element.addClass('awe-share-pin-left');
+        }
+        if (this.data.pinPosition === 'right') {
+          this.sharer.element.addClass('awe-share-pin-right');
+        }
+        this.onScroll();
+        if (this.data.pinScroll !== this.data.pinTop) {
+          jQuery(window).scroll(this.onScroll);
+        }
+      }
+      if (this.data.tip && typeof jQuery.fn.tooltip === 'function') {
+        placement = 'top';
+        if (this.sharer.element.hasClass('awe-share-pin-left')) {
+          placement = 'right';
+        }
+        if (this.sharer.element.hasClass('awe-share-pin-right')) {
+          placement = 'left';
+        }
+        if (typeof this.data.tip === 'string') {
+          placement = this.data.tip;
+        }
+        id = this.sharer.element.attr('id');
+        selector = " a";
+        console.log(selector);
+        jQuery("#" + id).tooltip({
+          selector: 'a',
+          placement: placement
+        });
+      }
       ref = this.adapters;
       for (name in ref) {
         adapter = ref[name];
@@ -283,10 +328,29 @@
       }
     }
 
+    Renderer.prototype.onScroll = function() {
+      var top;
+      top = this.window.scrollTop();
+      console.log(top);
+      if (top + this.data.pinScroll < this.data.pinTop) {
+        this.sharer.element.css({
+          top: this.data.pinTop - top
+        });
+        console.log(this.data.pinTop - top);
+      } else {
+        this.sharer.element.css({
+          top: this.data.pinScroll
+        });
+        console.log(this.data.pinScroll);
+      }
+    };
+
     Renderer.prototype.render = function(name, adapter) {
-      var counter, link, window;
+      var adapterName, counter, label, link, window;
       window = this.sharer.windows[name];
-      link = jQuery("<a href=\"" + window.url + "\" data-service=\"" + name + "\" class=\"awe-share-brand-" + name + "\" title=\"" + adapter.label + "\">\n	<i class='fa fa-2x fa-" + name + "'></i>\n</a>");
+      adapterName = this.sharer.camelize(name);
+      label = Maslosoft.AweShare.Adapters[adapterName].label;
+      link = jQuery("<a href=\"" + window.url + "\" data-service=\"" + name + "\" class=\"awe-share-brand-" + name + "\" title=\"" + label + "\">\n	<i class='fa fa-2x fa-" + name + "'></i>\n</a>");
       this.sharer.element.append(link);
       if (this.data.counter) {
         link.append("<span class=\"awe-share-counter\">" + this.empty + "</span>");

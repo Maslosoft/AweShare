@@ -1,15 +1,43 @@
 .awe-share a {
   padding: .6em .44em;
-  width: 2.3em;
-  height: 2em;
+  width: 3.2em;
+  min-height: 3.2em;
   text-align: center;
   display: inline-block;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-decoration: none;
+  vertical-align: top;
+}
+.awe-share a i {
+  display: block;
+}
+.awe-share a span {
+  display: block;
+  margin-bottom: -0.44em;
+}
+.awe-share a span:after {
+  content: '.';
+  visibility: hidden;
+}
+.awe-share.awe-share-pin {
+  position: fixed;
+  z-index: 9999;
+}
+.awe-share.awe-share-pin-left {
+  left: 0;
+}
+.awe-share.awe-share-pin-right {
+  right: 0;
+}
+.awe-share-collapse-empty a span:after {
+  content: '';
+  display: none;
 }
 .awe-share-vertical a {
   display: block;
+  min-height: 3.2em;
 }
 .awe-share-brand-bg a {
   color: white;
@@ -44,6 +72,9 @@
 .awe-share-brand-bg a.awe-share-brand-vk {
   background-color: #45668e;
 }
+.awe-share-brand-bg a.awe-share-brand-odnoklassniki {
+  background-color: #ed812b;
+}
 .awe-share-brand-fg a.awe-share-brand-facebook {
   color: #3b5998;
 }
@@ -73,6 +104,9 @@
 }
 .awe-share-brand-fg a.awe-share-brand-vk {
   color: #45668e;
+}
+.awe-share-brand-fg a.awe-share-brand-odnoklassniki {
+  color: #ed812b;
 }
 .awe-share-brand-bg-hover a:hover {
   color: white;
@@ -107,6 +141,9 @@
 .awe-share-brand-bg-hover a:hover.awe-share-brand-vk {
   background-color: #45668e;
 }
+.awe-share-brand-bg-hover a:hover.awe-share-brand-odnoklassniki {
+  background-color: #ed812b;
+}
 .awe-share-brand-fg-hover a:hover {
   background-color: transparent;
 }
@@ -139,5 +176,8 @@
 }
 .awe-share-brand-fg-hover a:hover.awe-share-brand-vk {
   color: #45668e;
+}
+.awe-share-brand-fg-hover a:hover.awe-share-brand-odnoklassniki {
+  color: #ed812b;
 }
 /*# sourceMappingURL=awe-share.css.map */
