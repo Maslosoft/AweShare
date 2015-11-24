@@ -30,8 +30,9 @@ class @Maslosoft.AweShare
 	#
 	#
 	# @param element HtmlElement
+	# @param object Configuration to init sharer. This has precedence over data attributes
 	#
-	constructor: (element) ->
+	constructor: (element, data = null) ->
 		
 		# Ensure we have new instances here
 		@adapters = {}
@@ -46,9 +47,12 @@ class @Maslosoft.AweShare
 		
 		if not @element.attr('id')
 			@element.attr('id', "maslosoft-awe-share-#{AweShare.idCounter}")
-		
-		data = @element.data()
-		
+
+		# If no config passed, init from data-* attributes
+		if data is null
+			data = @element.data()
+
+		# Create head's meta data helper for further use
 		meta = new Maslosoft.AweShare.Meta
 
 		# Get services from element

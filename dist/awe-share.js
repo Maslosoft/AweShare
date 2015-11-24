@@ -17,9 +17,12 @@
 
     AweShare.prototype.windows = {};
 
-    function AweShare(element) {
+    function AweShare(element, data) {
+      var adapter, adapterName, index, meta, name, ref, ref1, window;
+      if (data == null) {
+        data = null;
+      }
       this.share = bind(this.share, this);
-      var adapter, adapterName, data, index, meta, name, ref, ref1, window;
       this.adapters = {};
       this.windows = {};
       this.element = {};
@@ -28,7 +31,9 @@
       if (!this.element.attr('id')) {
         this.element.attr('id', "maslosoft-awe-share-" + AweShare.idCounter);
       }
-      data = this.element.data();
+      if (data === null) {
+        data = this.element.data();
+      }
       meta = new Maslosoft.AweShare.Meta;
       if (typeof data.services === 'string') {
         data.services = data.services.replace(/\s*/g, '').split(',');
