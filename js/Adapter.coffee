@@ -7,12 +7,12 @@ class @Maslosoft.AweShare.Adapter
 	id: null
 
 	url: ''
-	
+
 	image: ''
 
 	count: (callback) ->
 		callback(0)
-		
+
 	decorate: (window) ->
 		window.url = '#not implemented'
 
@@ -22,7 +22,7 @@ class @Maslosoft.AweShare.Adapter
 		return @id
 
 	setImage: (@image) ->
-		
+
 
 	setUrl: (url) ->
 		url = url.toString()

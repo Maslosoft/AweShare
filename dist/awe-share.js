@@ -1,5 +1,5 @@
 (function() {
-  var callbackCache, counterCache,
+  var assert, callbackCache, counterCache, log,
     bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
     hasProp = {}.hasOwnProperty;
@@ -7,6 +7,20 @@
   if (!this.Maslosoft) {
     this.Maslosoft = {};
   }
+
+  assert = function(expr) {
+    if (!console) {
+      return;
+    }
+    return console.assert(expr);
+  };
+
+  log = function(expr) {
+    if (!console) {
+      return;
+    }
+    return console.log(expx);
+  };
 
   this.Maslosoft.AweShare = (function() {
     AweShare.idCounter = 0;

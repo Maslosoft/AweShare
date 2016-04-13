@@ -1,5 +1,6 @@
 coffees = [
 	'_ns'
+	'_functions'
 	'AweShare'
 	'Adapter'
 	'Counter'
