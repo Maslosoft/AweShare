@@ -23,8 +23,8 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "~2.1.4",
+    "jquery": "*",
     "fontawesome": "~4",
-    "bootstrap": "~3.3.5"
+    "bootstrap": "~3"
   }
 }
