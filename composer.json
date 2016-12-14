@@ -1,0 +1,15 @@
+{
+    "name": "maslosoft/awe-share",
+    "description": "Social Sharing Widget",
+	"license": [
+		"AGPL",
+		"Commercial"
+	],
+    "authors": [
+        {
+            "name": "Peter Maselkowski",
+            "email": "pmaselkowski@gmail.com"
+        }
+    ],
+    "require": {}
+}
