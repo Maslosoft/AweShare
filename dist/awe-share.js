@@ -762,7 +762,9 @@
     };
 
     Twitter.prototype.decorate = function(window) {
-      window.url = "https://twitter.com/intent/tweet?text=" + window.title + "&url=" + this.url;
+      var title;
+      title = encodeURIComponent(window.title);
+      window.url = "https://twitter.com/intent/tweet?text=" + title + "&url=" + this.url;
       window.width = 480;
       return window.height = 280;
     };
