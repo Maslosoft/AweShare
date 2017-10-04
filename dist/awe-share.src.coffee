@@ -418,13 +418,10 @@ class @Maslosoft.AweShare.Renderer
 	#
 	onScroll: () =>
 		top = @window.scrollTop()
-		console.log top
 		if top + @data.pinScroll < @data.pinTop
 			@sharer.element.css top: @data.pinTop - top
-			console.log @data.pinTop - top
 		else
 			@sharer.element.css top: @data.pinScroll
-			console.log @data.pinScroll
 		return
 
 	#

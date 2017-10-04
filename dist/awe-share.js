@@ -350,17 +350,14 @@
     Renderer.prototype.onScroll = function() {
       var top;
       top = this.window.scrollTop();
-      console.log(top);
       if (top + this.data.pinScroll < this.data.pinTop) {
         this.sharer.element.css({
           top: this.data.pinTop - top
         });
-        console.log(this.data.pinTop - top);
       } else {
         this.sharer.element.css({
           top: this.data.pinScroll
         });
-        console.log(this.data.pinScroll);
       }
     };
 
