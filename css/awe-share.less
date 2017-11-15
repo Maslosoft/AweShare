@@ -1,15 +1,15 @@
 
-@facebook: #3b5998;
-@linkedin: #0077B5;
-@twitter: #55ACEE;
-@tumblr:#35465c;
-@reddit: #ff5700;
-@pinterest:#bd081c;
-@googlePlus: #D13E29;
-@digg: #000000;
-@delicious:#3399ff;
-@vk:#45668e;
-@odnoklassniki:#ed812b;
+@facebook: #3b5998 !important;
+@linkedin: #0077B5 !important;
+@twitter: #55ACEE !important;
+@tumblr:#35465c !important;
+@reddit: #ff5700 !important;
+@pinterest:#bd081c !important;
+@googlePlus: #D13E29 !important;
+@digg: #000000 !important;
+@delicious:#3399ff !important;
+@vk:#45668e !important;
+@odnoklassniki:#ed812b !important;
 
 // Horizontal
 .awe-share{
@@ -69,7 +69,7 @@
 // Display brand colors as background
 .awe-share-brand-bg{
 	a{
-		color:white;
+		color:white !important;
 
 		&.awe-share-brand-facebook{
 			background-color:@facebook;
@@ -149,8 +149,8 @@
 // Display brand colors as background on hover
 .awe-share-brand-bg-hover{
 	a{
-		&:hover{
-			color:white;
+		&:hover, &:active, &:focus{
+			color:white !important;
 			&.awe-share-brand-facebook{
 				background-color:@facebook;
 			}
@@ -191,7 +191,7 @@
 // Display brand colors as foreground on hover
 .awe-share-brand-fg-hover{
 	a{
-		&:hover{
+		&:hover, &:active, &:focus{
 			background-color:transparent;
 			&.awe-share-brand-facebook{
 				color:@facebook;

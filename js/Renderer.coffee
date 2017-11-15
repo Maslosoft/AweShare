@@ -98,7 +98,7 @@ class @Maslosoft.AweShare.Renderer
 			# Apply only to selected sharers
 			id = @sharer.element.attr('id')
 			selector = " a"
-			
+
 			jQuery("##{id}").tooltip({
 				selector: 'a'
 				placement: placement

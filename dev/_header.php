@@ -12,37 +12,7 @@ if (isset($_GET['bs']) && $_GET['bs'] == false)
 		<meta charset="UTF-8">
 		<title>Maslosoft Awe Share</title>
 		<meta name="Description" content="Font Awesome Based Social Share Buttons"/>
-		<style>
-			body{
-				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-				font-size: 14px;
-				line-height: 20px;
-				color: #333333;
-			}
-			pre
-			{
-				-moz-tab-size: 4;
-				-o-tab-size:   4;
-				tab-size:      4;
-			}
 
-			nav ul, nav ul li{
-				list-style: none;
-				margin: 0px 2px;
-				padding: 2px;
-			}
-			nav ul{
-				/*background: url('./images/menuBg.jpg') no-repeat;*/
-				background-size: cover;
-			}
-			nav ul li{
-				display: inline-block;
-				color: white;
-			}
-			nav ul li a, nav ul li a:hover{
-				color: white;
-			}
-		</style>
 		<!--Option to disable bootstrap styles-->
 		<?php if ($bs): ?>
 			<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -50,6 +20,44 @@ if (isset($_GET['bs']) && $_GET['bs'] == false)
 		<?php endif; ?>
 		<link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="../dist/awe-share.css" />
+
+        <style>
+            body{
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: 14px;
+                line-height: 20px;
+                color: #333333;
+            }
+            a:focus{
+                color: red;
+            }
+            a:active{
+                color: blue;
+            }
+            pre
+            {
+                -moz-tab-size: 4;
+                -o-tab-size:   4;
+                tab-size:      4;
+            }
+
+            nav ul, nav ul li{
+                list-style: none;
+                margin: 0px 2px;
+                padding: 2px;
+            }
+            nav ul{
+                /*background: url('./images/menuBg.jpg') no-repeat;*/
+                background-size: cover;
+            }
+            nav ul li{
+                display: inline-block;
+                color: white;
+            }
+            nav ul li a, nav ul li a:hover{
+                color: white;
+            }
+        </style>
 
 		<script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
 		<script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
