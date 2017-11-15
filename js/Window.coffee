@@ -39,13 +39,13 @@ class @Maslosoft.AweShare.Window
 		w = screen.width or window.outerWidth
 		h = screen.height or window.outerHeight
 		
-		# Calculate width if not available preffered width
+		# Calculate width if not available preferred width
 		if @width is ''
 			@width = Math.ceil(w / 2)
 		# Restrict width to not overflow device
 		@width = Math.min(@width, w)
 		
-		# Calculate height if not available preffered height
+		# Calculate height if not available preferred height
 		if @height is ''
 			@height = Math.ceil(h / 2)
 		

@@ -56,7 +56,7 @@
         data.services = [];
       }
       if (!data.url) {
-        data.url = document.location;
+        data.url = '';
       }
       if (!data.title) {
         data.title = document.title;
@@ -92,7 +92,6 @@
           adapter = new Maslosoft.AweShare.Adapters[adapterName];
           adapter.setUrl(data.url);
           window = new Maslosoft.AweShare.Window(data);
-          adapter.decorate(window);
           this.adapters[name] = adapter;
           this.windows[name] = window;
         } else {
@@ -108,12 +107,21 @@
     }
 
     AweShare.prototype.share = function(e) {
-      var adapter, data, service, window;
+      var adapter, clearUrl, data, service, window;
       data = jQuery(e.currentTarget).data();
       service = data.service;
       adapter = this.adapters[service];
       window = this.windows[service];
+      clearUrl = false;
+      if (!adapter.url) {
+        adapter.url = document.location;
+        clearUrl = true;
+      }
+      adapter.decorate(window);
       window.open();
+      if (clearUrl) {
+        adapter.url = '';
+      }
       return e.preventDefault();
     };
 
@@ -334,7 +342,6 @@
         }
         id = this.sharer.element.attr('id');
         selector = " a";
-        console.log(selector);
         jQuery("#" + id).tooltip({
           selector: 'a',
           placement: placement

@@ -94,6 +94,8 @@ if (isset($_GET['bs']) && $_GET['bs'] == false)
 				<?php else: ?>
 					<a href="?bs=1">Enable twitter bootstrap</a>
 				<?php endif; ?>
+                |
+                <a href="javascript://" onclick="window.history.pushState(null, document.title, '?go=' + (new Date).getSeconds())">Change URL</a>
 				<ul>
 					<li class="link">
 						<a href="./index.php">Index</a>

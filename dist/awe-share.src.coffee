@@ -69,9 +69,11 @@ class @Maslosoft.AweShare
 		if typeof(data.services) is 'undefined'
 			data.services = []
 			
-		# Set url if empty
+		# Set url if empty string, as toString method might be called in adapters
+		# Do not set it to document.location now, as it will be set just-in-time
+		# for more dynamic behavior, see https://github.com/Maslosoft/AweShare/issues/4
 		if not data.url
-			data.url = document.location
+			data.url = ''
 			
 		# Set title and description if empty
 		if not data.title
@@ -114,9 +116,6 @@ class @Maslosoft.AweShare
 				# Setup window
 				window = new Maslosoft.AweShare.Window(data)
 				
-				# Decorate window by adapter
-				adapter.decorate window
-				
 				# Assign to local properties
 				@adapters[name] = adapter
 				@windows[name] = window
@@ -145,9 +144,21 @@ class @Maslosoft.AweShare
 		service = data.service
 		adapter = @adapters[service]
 		window = @windows[service]
+
+		clearUrl = false
+		# Set url if empty
+		if not adapter.url
+			adapter.url = document.location
+			clearUrl = true
+
+		# Decorate window by adapter
+		adapter.decorate window
 		
 		window.open()
-		
+
+		if clearUrl
+			adapter.url = ''
+
 		e.preventDefault()
 		
 
@@ -402,7 +413,7 @@ class @Maslosoft.AweShare.Renderer
 			# Apply only to selected sharers
 			id = @sharer.element.attr('id')
 			selector = " a"
-			console.log selector
+			
 			jQuery("##{id}").tooltip({
 				selector: 'a'
 				placement: placement
@@ -510,13 +521,13 @@ class @Maslosoft.AweShare.Window
 		w = screen.width or window.outerWidth
 		h = screen.height or window.outerHeight
 		
-		# Calculate width if not available preffered width
+		# Calculate width if not available preferred width
 		if @width is ''
 			@width = Math.ceil(w / 2)
 		# Restrict width to not overflow device
 		@width = Math.min(@width, w)
 		
-		# Calculate height if not available preffered height
+		# Calculate height if not available preferred height
 		if @height is ''
 			@height = Math.ceil(h / 2)
 		
