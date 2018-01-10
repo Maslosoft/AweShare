@@ -32,7 +32,7 @@
     AweShare.prototype.windows = {};
 
     function AweShare(element, data) {
-      var adapter, adapterName, index, meta, name, ref, ref1, window;
+      var adapter, adapterName, i, index, len, meta, name, ref, ref1, tag, window;
       if (data == null) {
         data = null;
       }
@@ -64,6 +64,16 @@
       if (!data.description) {
         data.description = meta.getName('description');
       }
+      if (!data.tags) {
+        data.tags = meta.getName('keywords');
+      }
+      if (data.tags) {
+        data.tags = data.tags.split(',');
+        for (tag = i = 0, len = tags.length; i < len; tag = ++i) {
+          index = tags[tag];
+          console.log(index, tag);
+        }
+      }
       if (!data.image) {
         data.image = meta.getProperty('og:image');
       }
@@ -91,6 +101,9 @@
         if (typeof Maslosoft.AweShare.Adapters[adapterName] === 'function') {
           adapter = new Maslosoft.AweShare.Adapters[adapterName];
           adapter.setUrl(data.url);
+          if (adapter.setData) {
+            adapter.setData(data);
+          }
           window = new Maslosoft.AweShare.Window(data);
           this.adapters[name] = adapter;
           this.windows[name] = window;
@@ -163,6 +176,8 @@
 
     Adapter.prototype.image = '';
 
+    Adapter.prototype.data = null;
+
     Adapter.prototype.count = function(callback) {
       return callback(0);
     };
@@ -181,6 +196,10 @@
 
     Adapter.prototype.setImage = function(image) {
       this.image = image;
+    };
+
+    Adapter.prototype.setData = function(data1) {
+      this.data = data1;
     };
 
     Adapter.prototype.setUrl = function(url) {
@@ -769,6 +788,9 @@
       var title;
       title = encodeURIComponent(window.title);
       window.url = "https://twitter.com/intent/tweet?text=" + title + "&url=" + this.url;
+      if (this.data.tags.length) {
+        window.url = window.url + "&hashtags=" + (this.data.tags.join(','));
+      }
       window.width = 480;
       return window.height = 280;
     };

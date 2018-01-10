@@ -10,6 +10,8 @@ class @Maslosoft.AweShare.Adapter
 
 	image: ''
 
+	data: null
+
 	count: (callback) ->
 		callback(0)
 
@@ -23,6 +25,7 @@ class @Maslosoft.AweShare.Adapter
 
 	setImage: (@image) ->
 
+	setData: (@data) ->
 
 	setUrl: (url) ->
 		url = url.toString()

@@ -81,7 +81,15 @@ class @Maslosoft.AweShare
 			
 		if not data.description
 			data.description = meta.getName 'description'
-			
+
+		if not data.tags
+			data.tags = meta.getName 'keywords'
+
+		if data.tags
+			data.tags = data.tags.split ','
+			for index, tag in tags
+				console.log index, tag
+
 		if not data.image
 			data.image = meta.getProperty 'og:image'
 			
@@ -112,6 +120,9 @@ class @Maslosoft.AweShare
 				# Setup adapter
 				adapter = new Maslosoft.AweShare.Adapters[adapterName]
 				adapter.setUrl data.url
+
+				if adapter.setData
+					adapter.setData data
 				
 				# Setup window
 				window = new Maslosoft.AweShare.Window(data)
@@ -203,6 +214,8 @@ class @Maslosoft.AweShare.Adapter
 
 	image: ''
 
+	data: null
+
 	count: (callback) ->
 		callback(0)
 
@@ -216,6 +229,7 @@ class @Maslosoft.AweShare.Adapter
 
 	setImage: (@image) ->
 
+	setData: (@data) ->
 
 	setUrl: (url) ->
 		url = url.toString()
@@ -704,7 +718,7 @@ class @Maslosoft.AweShare.Adapters.Tumblr extends @Maslosoft.AweShare.Adapter
 class @Maslosoft.AweShare.Adapters.Twitter extends @Maslosoft.AweShare.Adapter
 
 	@label = "Tweet It"
-	
+
 	count: (callback) ->
 		$.getJSON "http://urls.api.twitter.com/1/urls/count.json?&url=#{@url}&callback=?", (data) ->
 			shares = data.count
@@ -715,6 +729,8 @@ class @Maslosoft.AweShare.Adapters.Twitter extends @Maslosoft.AweShare.Adapter
 	decorate: (window) ->
 		title = encodeURIComponent(window.title)
 		window.url = "https://twitter.com/intent/tweet?text=#{title}&url=#{@url}"
+		if @data.tags.length
+			window.url = "#{window.url}&hashtags=#{@data.tags.join(',')}"
 		window.width = 480
 		window.height = 280
 

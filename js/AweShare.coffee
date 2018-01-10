@@ -70,7 +70,15 @@ class @Maslosoft.AweShare
 			
 		if not data.description
 			data.description = meta.getName 'description'
-			
+
+		if not data.tags
+			data.tags = meta.getName 'keywords'
+
+		if data.tags
+			data.tags = data.tags.split ','
+			for index, tag in tags
+				console.log index, tag
+
 		if not data.image
 			data.image = meta.getProperty 'og:image'
 			
@@ -101,6 +109,9 @@ class @Maslosoft.AweShare
 				# Setup adapter
 				adapter = new Maslosoft.AweShare.Adapters[adapterName]
 				adapter.setUrl data.url
+
+				if adapter.setData
+					adapter.setData data
 				
 				# Setup window
 				window = new Maslosoft.AweShare.Window(data)

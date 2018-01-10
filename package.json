@@ -25,14 +25,18 @@
   },
   "homepage": "https://github.com/Maslosoft/AweShare",
   "dependencies": {
+    "@bower_components/bootstrap": "git://github.com/twbs/bootstrap.git#~3.3.5",
+    "@bower_components/font-awesome": "git://github.com/FortAwesome/Font-Awesome.git#~4.4.0",
+    "@bower_components/jquery": "git://github.com/jquery/jquery.git#~2.1.4",
+    "bootstrap": "git://github.com/twbs/bootstrap.git#~3.3.5",
+    "font-awesome": "git://github.com/FortAwesome/Font-Awesome.git#~4.4.0",
+    "grunt": "^1.0.1",
     "grunt-contrib-coffee": "^0.13.0",
     "grunt-contrib-cssmin": "^0.13.0",
     "grunt-contrib-less": "^1.0.1",
     "grunt-contrib-uglify": "^0.9.2",
     "grunt-contrib-watch": "^0.6.1",
-    "@bower_components/bootstrap": "git://github.com/twbs/bootstrap.git#~3.3.5",
-    "@bower_components/font-awesome": "git://github.com/FortAwesome/Font-Awesome.git#~4.4.0",
-    "@bower_components/jquery": "git://github.com/jquery/jquery.git#~2.1.4"
+    "jquery": "git://github.com/jquery/jquery.git#~2.1.4"
   },
   "engines": {
     "yarn": ">= 1.0.0"
