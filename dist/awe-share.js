@@ -32,7 +32,7 @@
     AweShare.prototype.windows = {};
 
     function AweShare(element, data) {
-      var adapter, adapterName, i, index, len, meta, name, ref, ref1, tag, window;
+      var adapter, adapterName, i, index, len, meta, name, ref, ref1, ref2, tag, window;
       if (data == null) {
         data = null;
       }
@@ -67,13 +67,16 @@
       if (!data.tags) {
         data.tags = meta.getName('keywords');
       }
+      console.log(meta.getName('keywords'));
       if (data.tags) {
         data.tags = data.tags.split(',');
-        for (tag = i = 0, len = tags.length; i < len; tag = ++i) {
-          index = tags[tag];
-          console.log(index, tag);
+        ref = data.tags;
+        for (index = i = 0, len = ref.length; i < len; index = ++i) {
+          tag = ref[index];
+          data.tags[index] = tag.replace('#', '');
         }
       }
+      console.log(data.tags);
       if (!data.image) {
         data.image = meta.getProperty('og:image');
       }
@@ -87,16 +90,16 @@
         data.tip = false;
       }
       if (!data.services.length) {
-        ref = Maslosoft.AweShare.Adapters;
-        for (name in ref) {
-          adapter = ref[name];
+        ref1 = Maslosoft.AweShare.Adapters;
+        for (name in ref1) {
+          adapter = ref1[name];
           data.services.push(this.decamelize(name));
         }
       }
       this.adapters = {};
-      ref1 = data.services;
-      for (index in ref1) {
-        name = ref1[index];
+      ref2 = data.services;
+      for (index in ref2) {
+        name = ref2[index];
         adapterName = this.camelize(name);
         if (typeof Maslosoft.AweShare.Adapters[adapterName] === 'function') {
           adapter = new Maslosoft.AweShare.Adapters[adapterName];
@@ -785,11 +788,21 @@
     };
 
     Twitter.prototype.decorate = function(window) {
-      var title;
+      var title, via;
       title = encodeURIComponent(window.title);
       window.url = "https://twitter.com/intent/tweet?text=" + title + "&url=" + this.url;
       if (this.data.tags.length) {
         window.url = window.url + "&hashtags=" + (this.data.tags.join(','));
+      }
+      via = '';
+      if (this.data.twitterBy) {
+        via = this.data.twitterBy;
+      }
+      if (this.data.twitterVia) {
+        via = this.data.twitterVia;
+      }
+      if (via) {
+        window.url = window.url + "&via=" + via;
       }
       window.width = 480;
       return window.height = 280;

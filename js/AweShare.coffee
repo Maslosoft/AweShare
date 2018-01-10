@@ -74,10 +74,14 @@ class @Maslosoft.AweShare
 		if not data.tags
 			data.tags = meta.getName 'keywords'
 
+		console.log meta.getName 'keywords'
+
 		if data.tags
 			data.tags = data.tags.split ','
-			for index, tag in tags
-				console.log index, tag
+			for tag, index in data.tags
+				data.tags[index] = tag.replace '#', ''
+
+		console.log data.tags
 
 		if not data.image
 			data.image = meta.getProperty 'og:image'
