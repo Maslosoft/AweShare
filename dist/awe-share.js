@@ -68,13 +68,19 @@
         data.tags = meta.getName('keywords');
       }
       console.log(meta.getName('keywords'));
-      if (data.tags) {
+      if (data.tags && typeof data.tags.split === 'function') {
         data.tags = data.tags.split(',');
         ref = data.tags;
         for (index = i = 0, len = ref.length; i < len; index = ++i) {
           tag = ref[index];
           data.tags[index] = tag.replace('#', '');
         }
+      }
+      if (!data.tags) {
+        data.tags = [];
+      }
+      if (data.tags.constructor.name.toLowerCase() !== 'array') {
+        data.tags = [];
       }
       console.log(data.tags);
       if (!data.image) {

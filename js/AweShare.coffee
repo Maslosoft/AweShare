@@ -76,10 +76,19 @@ class @Maslosoft.AweShare
 
 		console.log meta.getName 'keywords'
 
-		if data.tags
+		# Tags as string, split them
+		if data.tags and typeof(data.tags.split) is 'function'
 			data.tags = data.tags.split ','
 			for tag, index in data.tags
 				data.tags[index] = tag.replace '#', ''
+
+		# No tags, initialize
+		if not data.tags
+			data.tags = []
+
+		# Ensure array, just in case
+		if data.tags.constructor.name.toLowerCase() isnt 'array'
+			data.tags = []
 
 		console.log data.tags
 
