@@ -10,7 +10,7 @@
   version "4.4.0"
   resolved "git://github.com/FortAwesome/Font-Awesome.git#e554555d73a44e0a7d11b0361ad7a5325a5f551c"
 
-"@bower_components/jquery@git://github.com/jquery/jquery.git#~2.1.4", "jquery@git://github.com/jquery/jquery.git#~2.1.4":
+"@bower_components/jquery@git://github.com/jquery/jquery.git#~2.1.4":
   version "2.1.4"
   resolved "git://github.com/jquery/jquery.git#7751e69b615c6eca6f783a81e292a55725af6b85"
 
@@ -785,6 +785,11 @@ isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
+
+"jquery@git://github.com/jquery/jquery.git#~3.5.0":
+  version "3.5.1"
+  uid e1cffdef277fcf543833a20d28cbadcd000ebece
+  resolved "git://github.com/jquery/jquery.git#e1cffdef277fcf543833a20d28cbadcd000ebece"
 
 js-yaml@~3.5.2:
   version "3.5.5"
