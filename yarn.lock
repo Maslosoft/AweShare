@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@bower_components/bootstrap@git://github.com/twbs/bootstrap.git#~3.3.5", "bootstrap@git://github.com/twbs/bootstrap.git#~3.3.5":
+"@bower_components/bootstrap@git://github.com/twbs/bootstrap.git#~3.3.5":
   version "3.3.7"
   resolved "git://github.com/twbs/bootstrap.git#0b9c4a4007c44201dce9a6cc1a38407005c26c86"
 
@@ -143,6 +143,11 @@ boom@2.x.x:
   integrity sha1-OciRjO/1eZ+D+UkqhI9iWt0Mdm8=
   dependencies:
     hoek "2.x.x"
+
+"bootstrap@git://github.com/twbs/bootstrap.git#~3.4.1":
+  version "3.4.1"
+  uid "68b0d231a13201eb14acd3dc84e51543d16e5f7e"
+  resolved "git://github.com/twbs/bootstrap.git#68b0d231a13201eb14acd3dc84e51543d16e5f7e"
 
 brace-expansion@^1.1.7:
   version "1.1.8"
