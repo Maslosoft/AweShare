@@ -32,11 +32,25 @@
     AweShare.prototype.windows = {};
 
     function AweShare(element, data) {
-      var adapter, adapterName, i, index, len, meta, name, ref, ref1, ref2, tag, window;
+      if (element == null) {
+        element = null;
+      }
       if (data == null) {
         data = null;
       }
       this.share = bind(this.share, this);
+      this.dispose = bind(this.dispose, this);
+      this.init = bind(this.init, this);
+      if (element !== null) {
+        this.init(element, data);
+      }
+    }
+
+    AweShare.prototype.init = function(element, data) {
+      var adapter, adapterName, i, index, len, meta, name, ref, ref1, ref2, tag, window;
+      if (data == null) {
+        data = null;
+      }
       this.adapters = {};
       this.windows = {};
       this.element = {};
@@ -125,8 +139,16 @@
         console.warn("No adapters selected for ", element, (new Error).stack);
       }
       this.element.on('click', 'a', this.share);
-      new Maslosoft.AweShare.Renderer(this, data, this.adapters);
-    }
+      return new Maslosoft.AweShare.Renderer(this, data, this.adapters);
+    };
+
+    AweShare.prototype.dispose = function() {
+      if (!this.element) {
+        return;
+      }
+      this.element.off('click', 'a', this.share);
+      return this.element.html('');
+    };
 
     AweShare.prototype.share = function(e) {
       var adapter, clearUrl, data, service, window;
@@ -401,7 +423,7 @@
       window = this.sharer.windows[name];
       adapterName = this.sharer.camelize(name);
       label = Maslosoft.AweShare.Adapters[adapterName].label;
-      link = jQuery("<a href=\"" + window.url + "\" data-service=\"" + name + "\" class=\"awe-share-brand-" + name + "\" title=\"" + label + "\">\n	<i class='fa fa-2x fa-" + name + "'></i>\n</a>");
+      link = jQuery("<a href=\"" + window.url + "\" data-service=\"" + name + "\" class=\"awe-share-button awe-share-brand-" + name + "\" title=\"" + label + "\">\n	<i class='awe-share-button-icon fa fa-2x fa-" + name + "'></i>\n</a>");
       this.sharer.element.append(link);
       if (this.data.counter) {
         link.append("<span class=\"awe-share-counter\">" + this.empty + "</span>");
@@ -508,37 +530,6 @@
 
   })();
 
-  this.Maslosoft.AweShare.Adapters.Delicious = (function(superClass) {
-    extend(Delicious, superClass);
-
-    function Delicious() {
-      return Delicious.__super__.constructor.apply(this, arguments);
-    }
-
-    Delicious.label = "Save to Delicious";
-
-    Delicious.prototype.count = function(callback) {
-      return $.getJSON("http://feeds.delicious.com/v2/json/urlinfo/data?url=" + this.url + "&callback=?", (function(_this) {
-        return function(data) {
-          var shares;
-          shares = data[0] ? data[0].total_posts : 0;
-          return callback(shares);
-        };
-      })(this)).fail(function() {
-        return callback(0);
-      });
-    };
-
-    Delicious.prototype.decorate = function(window) {
-      window.url = "http://delicious.com/save?url=" + this.url + "&title=" + window.title + "&note=" + window.description;
-      window.width = 710;
-      return window.height = 660;
-    };
-
-    return Delicious;
-
-  })(this.Maslosoft.AweShare.Adapter);
-
   this.Maslosoft.AweShare.Adapters.Digg = (function(superClass) {
     extend(Digg, superClass);
 
@@ -604,42 +595,6 @@
     };
 
     return Facebook;
-
-  })(this.Maslosoft.AweShare.Adapter);
-
-  this.Maslosoft.AweShare.Adapters.GooglePlus = (function(superClass) {
-    extend(GooglePlus, superClass);
-
-    function GooglePlus() {
-      return GooglePlus.__super__.constructor.apply(this, arguments);
-    }
-
-    GooglePlus.label = "Share on Google+";
-
-    GooglePlus.prototype.count = function(callback) {
-      if (!window.services) {
-        window.services = {};
-      }
-      if (!window.services.gplus) {
-        window.services.gplus = {};
-      }
-      window.services.gplus.cb = (function(_this) {
-        return function(shares) {
-          return callback(shares);
-        };
-      })(this);
-      return $.getScript("http://share.yandex.ru/gpp.xml?url=" + this.url).fail(function() {
-        return callback(0);
-      });
-    };
-
-    GooglePlus.prototype.decorate = function(window) {
-      window.url = "https://plus.google.com/share?url=" + this.url;
-      window.width = 490;
-      return window.height = 460;
-    };
-
-    return GooglePlus;
 
   })(this.Maslosoft.AweShare.Adapter);
 

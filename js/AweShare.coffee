@@ -29,8 +29,15 @@ class @Maslosoft.AweShare
 	# @param element HtmlElement
 	# @param object Configuration to init sharer. This has precedence over data attributes
 	#
-	constructor: (element, data = null) ->
-		
+	constructor: (element = null, data = null) ->
+		if element isnt null
+			@init(element, data)
+
+	#
+	# Init widget
+	#
+	#
+	init: (element, data = null) =>
 		# Ensure we have new instances here
 		@adapters = {}
 		@windows = {}
@@ -143,7 +150,13 @@ class @Maslosoft.AweShare
 		@element.on 'click', 'a', @share
 			
 		new Maslosoft.AweShare.Renderer @, data, @adapters
-		
+
+
+	dispose: () =>
+		if not @element
+			return
+		@element.off 'click', 'a', @share
+		@element.html('')
 
 	# Event handlers
 	

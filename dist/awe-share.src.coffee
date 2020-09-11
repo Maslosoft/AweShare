@@ -40,8 +40,15 @@ class @Maslosoft.AweShare
 	# @param element HtmlElement
 	# @param object Configuration to init sharer. This has precedence over data attributes
 	#
-	constructor: (element, data = null) ->
-		
+	constructor: (element = null, data = null) ->
+		if element isnt null
+			@init(element, data)
+
+	#
+	# Init widget
+	#
+	#
+	init: (element, data = null) =>
 		# Ensure we have new instances here
 		@adapters = {}
 		@windows = {}
@@ -154,7 +161,13 @@ class @Maslosoft.AweShare
 		@element.on 'click', 'a', @share
 			
 		new Maslosoft.AweShare.Renderer @, data, @adapters
-		
+
+
+	dispose: () =>
+		if not @element
+			return
+		@element.off 'click', 'a', @share
+		@element.html('')
 
 	# Event handlers
 	
@@ -472,8 +485,8 @@ class @Maslosoft.AweShare.Renderer
 		adapterName = @sharer.camelize name
 		label = Maslosoft.AweShare.Adapters[adapterName].label
 		link = jQuery """
-		<a href="#{window.url}" data-service="#{name}" class="awe-share-brand-#{name}" title="#{label}">
-			<i class='fa fa-2x fa-#{name}'></i>
+		<a href="#{window.url}" data-service="#{name}" class="awe-share-button awe-share-brand-#{name}" title="#{label}">
+			<i class='awe-share-button-icon fa fa-2x fa-#{name}'></i>
 		</a>
 		"""
 		
@@ -576,25 +589,6 @@ class @Maslosoft.AweShare.Window
 		window.open(@url, @name, specs.join(','));
 
 
-class @Maslosoft.AweShare.Adapters.Delicious extends @Maslosoft.AweShare.Adapter
-
-	@label = "Save to Delicious"
-	
-	count: (callback) ->
-		# Try this url:
-		# md5 param is md5 sum of full url
-		# https://avosapi.delicious.com/api/v1/posts/md5/6ab016b2dad7ba49a992ba0213a91cf8
-		$.getJSON "http://feeds.delicious.com/v2/json/urlinfo/data?url=#{@url}&callback=?", (data) =>
-			shares = if data[0] then data[0].total_posts else 0
-			callback shares
-		.fail () ->
-			callback 0
-	
-	decorate: (window) ->
-		window.url = "http://delicious.com/save?url=#{@url}&title=#{window.title}&note=#{window.description}"
-		window.width = 710
-		window.height = 660
-
 class @Maslosoft.AweShare.Adapters.Digg extends @Maslosoft.AweShare.Adapter
 
 	@label = "Submit to Digg"
@@ -630,33 +624,6 @@ class @Maslosoft.AweShare.Adapters.Facebook extends @Maslosoft.AweShare.Adapter
 		window.url = "http://www.facebook.com/sharer.php?m2w&s=100&p[url]=#{@url}&p[title]=#{window.title}&p[summary]=#{window.description}&p[images][0]=#{@image}"
 		window.width = 550
 		window.height = 359
-
-class @Maslosoft.AweShare.Adapters.GooglePlus extends @Maslosoft.AweShare.Adapter
-
-	@label = "Share on Google+"
-
-	count: (callback) ->
-		if not window.services
-			window.services = {}
-		if not window.services.gplus
-			window.services.gplus = {}
-
-		window.services.gplus.cb = (shares) =>
-			callback shares
-
-		$.getScript "http://share.yandex.ru/gpp.xml?url=#{@url}"
-		.fail () ->
-			callback 0
-
-	#
-	#
-	#
-	# @var window Maslosoft.AweShare.Window
-	#
-	decorate: (window) ->
-		window.url = "https://plus.google.com/share?url=#{@url}"
-		window.width = 490
-		window.height = 460
 
 class @Maslosoft.AweShare.Adapters.Linkedin extends @Maslosoft.AweShare.Adapter
 

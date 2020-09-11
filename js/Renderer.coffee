@@ -130,8 +130,8 @@ class @Maslosoft.AweShare.Renderer
 		adapterName = @sharer.camelize name
 		label = Maslosoft.AweShare.Adapters[adapterName].label
 		link = jQuery """
-		<a href="#{window.url}" data-service="#{name}" class="awe-share-brand-#{name}" title="#{label}">
-			<i class='fa fa-2x fa-#{name}'></i>
+		<a href="#{window.url}" data-service="#{name}" class="awe-share-button awe-share-brand-#{name}" title="#{label}">
+			<i class='awe-share-button-icon fa fa-2x fa-#{name}'></i>
 		</a>
 		"""
 		
