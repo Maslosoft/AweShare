@@ -30,7 +30,7 @@
     "@bower_components/jquery": "git://github.com/jquery/jquery.git#~2.1.4",
     "bootstrap": "git://github.com/twbs/bootstrap.git#~3.3.5",
     "font-awesome": "git://github.com/FortAwesome/Font-Awesome.git#~4.4.0",
-    "grunt": "^1.0.1",
+    "grunt": "^1.5.2",
     "grunt-contrib-coffee": "^0.13.0",
     "grunt-contrib-cssmin": "^0.13.0",
     "grunt-contrib-less": "^1.0.1",
